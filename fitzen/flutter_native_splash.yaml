@@ -1,9 +1,9 @@
 flutter_native_splash:
   color: "#121922"
-  image: assets/images/splash_logo.png
+  image: assets/images/logo/splash_logo.png
   android_gravity: center
   ios_content_mode: center
 
   android_12:
-    image: assets/images/splash_logo.png
+    image: assets/images/logo/splash_logo.png
     color: "#121922"
