@@ -16,7 +16,11 @@ class FitzenApp extends StatelessWidget {
       builder: (_, _) {
         return MaterialApp(
           home: OnBoardingPage(),
-          theme: ThemeData(scaffoldBackgroundColor: AppColors.primary),
+
+          theme: ThemeData(
+            scaffoldBackgroundColor: AppColors.primary,
+            brightness: Brightness.dark,
+          ),
           debugShowCheckedModeBanner: false,
         );
       },

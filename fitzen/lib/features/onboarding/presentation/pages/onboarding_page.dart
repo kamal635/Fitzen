@@ -1,3 +1,4 @@
+import 'package:fitzen/features/onboarding/presentation/pages/onboarding_page_body.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingPage extends StatelessWidget {
@@ -5,6 +6,6 @@ class OnBoardingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(body: OnBoardingPageBody());
   }
 }
