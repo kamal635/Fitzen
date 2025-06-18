@@ -12,11 +12,11 @@ class OnBoardingPageBody extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 8.w),
       child: Column(
         children: [
-          OnBoardingImageAndTitleSection(),
+          const OnBoardingImageAndTitleSection(),
 
           SizedBox(height: 20.h),
 
-          OnBoardingIndicatorAndButtonSection(),
+          const OnBoardingIndicatorAndButtonSection(),
         ],
       ),
     );
