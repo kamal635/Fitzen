@@ -3,6 +3,7 @@ import 'package:fitzen/features/onboarding/data/models/onboarding_items.dart';
 import 'package:fitzen/features/onboarding/presentation/providers/onboarding_controller_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnBoardingImageAndTitleSection extends ConsumerWidget {
   const OnBoardingImageAndTitleSection({super.key});
@@ -18,10 +19,16 @@ class OnBoardingImageAndTitleSection extends ConsumerWidget {
         itemCount: listOnboarding.length,
         itemBuilder: (context, i) {
           final item = listOnboarding[i];
+          final imageWidth = 400.w;
+          final imageHeight = (imageWidth / (12 / 9)).h;
           return Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              AspectRatio(aspectRatio: 12 / 9, child: Image.asset(item.image)),
+              SizedBox(
+                height: imageHeight,
+                width: imageWidth,
+                child: Image.asset(item.image),
+              ),
               Text(
                 item.tilte,
                 style: AppTextStyles.headline2,

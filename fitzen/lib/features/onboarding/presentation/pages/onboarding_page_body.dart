@@ -8,14 +8,17 @@ class OnBoardingPageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        OnBoardingImageAndTitleSection(),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 8.w),
+      child: Column(
+        children: [
+          const OnBoardingImageAndTitleSection(),
 
-        SizedBox(height: 20.h),
+          SizedBox(height: 20.h),
 
-        OnBoardingIndicatorAndButtonSection(),
-      ],
+          const OnBoardingIndicatorAndButtonSection(),
+        ],
+      ),
     );
   }
 }
