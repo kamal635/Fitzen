@@ -1,4 +1,3 @@
-مابك ماذا حصل لك
 # 💪 Fitzen App
 
 **Fitzen** is a modern fitness app designed to connect trainers and trainees in one platform.  
