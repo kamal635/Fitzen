@@ -1,10 +1,12 @@
+import 'package:fitzen/core/usecases/usecase_without_params.dart';
+
 import '../repository/onboarding_repository.dart';
 
-class CheckIfOnboardingDone {
+class CheckIfOnboardingDoneUsecase implements UsecaseWithoutParams {
   final OnboardingRepository repository;
 
-  CheckIfOnboardingDone(this.repository);
-
+  CheckIfOnboardingDoneUsecase(this.repository);
+  @override
   Future<bool> call() async {
     return await repository.checkIfOnboardingDone();
   }

@@ -1,10 +1,13 @@
+import 'package:fitzen/core/usecases/usecase_without_params.dart';
+
 import '../repository/onboarding_repository.dart';
 
-class SetOnboardingDone {
+class SetOnboardingDoneUsecase implements UsecaseWithoutParams {
   final OnboardingRepository repository;
 
-  SetOnboardingDone(this.repository);
+  SetOnboardingDoneUsecase(this.repository);
 
+  @override
   Future<void> call() async {
     await repository.setOnboardingDone();
   }
