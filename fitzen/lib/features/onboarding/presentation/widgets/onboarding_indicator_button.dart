@@ -1,4 +1,5 @@
 import 'package:fitzen/core/constant/app_colors.dart';
+import 'package:fitzen/core/routing/router_name.dart';
 import 'package:fitzen/features/onboarding/data/models/onboarding_items.dart';
 import 'package:fitzen/features/onboarding/presentation/providers/onboarding_controller_provider.dart';
 import 'package:fitzen/features/onboarding/presentation/providers/onboarding_shared_prefs_provider.dart';
@@ -58,7 +59,7 @@ class OnBoardingIndicatorAndButtonSection extends ConsumerWidget {
 
                 // Navigate to SignUp screen if the widget is still mounted
                 if (context.mounted) {
-                  context.go("/SignUpTester");
+                  context.go(RouterName.signUpPage);
                 }
               } else {
                 controller.nextPage(

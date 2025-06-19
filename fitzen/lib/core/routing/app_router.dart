@@ -1,3 +1,4 @@
+import 'package:fitzen/core/routing/router_name.dart';
 import 'package:fitzen/features/auth/sign_up_tester.dart';
 import 'package:fitzen/features/onboarding/presentation/providers/onboarding_shared_prefs_provider.dart';
 import 'package:go_router/go_router.dart';
@@ -8,11 +9,14 @@ final appRouterProvider = Provider<GoRouter>((ref) {
   final isOnboardingDoneAsync = ref.watch(isOnboardingDoneFutureProvider);
 
   return GoRouter(
-    initialLocation: '/',
+    initialLocation: RouterName.onboardingPage,
     routes: [
-      GoRoute(path: '/', builder: (context, state) => const OnBoardingPage()),
       GoRoute(
-        path: "/SignUpTester",
+        path: RouterName.onboardingPage,
+        builder: (context, state) => const OnBoardingPage(),
+      ),
+      GoRoute(
+        path: RouterName.signUpPage,
         builder: (context, state) => const SignUpTester(),
       ),
     ],
@@ -21,10 +25,14 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         data: (done) {
           if (done) {
             // If onboarding is done → go to /home
-            if (state.fullPath == '/') return "/SignUpTester";
+            if (state.fullPath == RouterName.onboardingPage) {
+              return RouterName.signUpPage;
+            }
           } else {
             // If not onboarding → we stay on "/"
-            if (state.fullPath != '/') return '/';
+            if (state.fullPath != RouterName.onboardingPage) {
+              return RouterName.onboardingPage;
+            }
           }
           return null;
         },

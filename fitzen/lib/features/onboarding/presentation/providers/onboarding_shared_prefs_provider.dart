@@ -21,14 +21,16 @@ final onboardingRepositoryProvider = Provider<OnboardingRepository>((ref) {
 });
 
 // Use Cases
-final setOnboardingDoneProvider = Provider<SetOnboardingDone>((ref) {
+final setOnboardingDoneProvider = Provider<SetOnboardingDoneUsecase>((ref) {
   final repo = ref.watch(onboardingRepositoryProvider);
-  return SetOnboardingDone(repo);
+  return SetOnboardingDoneUsecase(repo);
 });
 
-final checkIfOnboardingDoneProvider = Provider<CheckIfOnboardingDone>((ref) {
+final checkIfOnboardingDoneProvider = Provider<CheckIfOnboardingDoneUsecase>((
+  ref,
+) {
   final repo = ref.watch(onboardingRepositoryProvider);
-  return CheckIfOnboardingDone(repo);
+  return CheckIfOnboardingDoneUsecase(repo);
 });
 
 final isOnboardingDoneFutureProvider = FutureProvider<bool>((ref) async {
