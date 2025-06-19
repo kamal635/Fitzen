@@ -1,16 +1,50 @@
-# fitzen
+مابك ماذا حصل لك
+# 💪 Fitzen App
 
-A new Flutter project.
+**Fitzen** is a modern fitness app designed to connect trainers and trainees in one platform.  
+It allows users to browse and book training sessions, follow personalized fitness programs, and track their progress easily.
 
-## Getting Started
+The app is built with **Flutter** and follows **Clean Architecture** principles.  
 
-This project is a starting point for a Flutter application.
+---
+## 🏗 Project Structure (Clean Architecture)
+lib/
+├── core/                # Shared logic and services
+│   ├── constant/
+│   ├── error/
+│   ├── routing/         # go_router setup
+│   ├── services/        # shared_preferences setup
+│   ├── usecases/
+│   ├── utils/
+│   └── widgets/
+├── features/
+│   ├── onboarding/      # Onboarding feature
+│   └── auth/            # Coming soon
+├── fitzen_app.dart
+├── main.dart
 
-A few resources to get you started if this is your first Flutter project:
+## 🧠 Tech Stack
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+| Technology            | Use                                      |
+|-----------------------|-------------------------------------------|
+| Flutter               | UI development                           |
+| Riverpod              | State management                         |
+| GoRouter              | Navigation and redirection               |
+| SharedPreferences     | Local storage                            |
+| ScreenUtil            | Responsive UI                            |
+| SmoothPageIndicator   | Page indicators in onboarding            |
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## ✅ Completed Features
+
+### 1. 🚀 Onboarding Flow
+
+- 3 screen onboarding using `PageView`.
+- Controlled via `PageController` injected with Riverpod.
+- `SmoothPageIndicator` used for dots.
+- User state saved locally using `SharedPreferences`.
+- After completion, user is redirected to `/SignUpTester`.
+- Redirection is handled with `GoRouter` and guarded with `redirect`.
+
+---
