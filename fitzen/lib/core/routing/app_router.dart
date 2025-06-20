@@ -1,5 +1,6 @@
 import 'package:fitzen/core/routing/router_name.dart';
-import 'package:fitzen/features/auth/sign_up_tester.dart';
+import 'package:fitzen/features/auth/presentation/pages/who_are_you/who_are_you.dart';
+
 import 'package:fitzen/features/onboarding/presentation/providers/onboarding_shared_prefs_provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,8 +17,8 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         builder: (context, state) => const OnBoardingPage(),
       ),
       GoRoute(
-        path: RouterName.signUpPage,
-        builder: (context, state) => const SignUpTester(),
+        path: RouterName.whoAreYou,
+        builder: (context, state) => const WhoAreYouPage(),
       ),
     ],
     redirect: (context, state) {
@@ -26,7 +27,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           if (done) {
             // If onboarding is done → go to /home
             if (state.fullPath == RouterName.onboardingPage) {
-              return RouterName.signUpPage;
+              return RouterName.whoAreYou;
             }
           } else {
             // If not onboarding → we stay on "/"

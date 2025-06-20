@@ -14,6 +14,11 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w700,
     color: Colors.white,
   );
+  static final TextStyle headline3 = TextStyle(
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w700,
+    color: Colors.white,
+  );
 
   // Medium Title
   static final TextStyle title1 = TextStyle(
