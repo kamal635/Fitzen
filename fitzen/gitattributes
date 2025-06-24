@@ -1,0 +1,8 @@
+# اجبر GitHub على اعتبار ملفات Dart قابلة للتحليل
+*.dart linguist-detectable=true
+
+# تجاهل ملفات HTML و JS (عادةً في مجلد web)
+*.html linguist-detectable=false
+*.js linguist-detectable=false
+*.css linguist-detectable=false
+/web/* linguist-detectable=false
