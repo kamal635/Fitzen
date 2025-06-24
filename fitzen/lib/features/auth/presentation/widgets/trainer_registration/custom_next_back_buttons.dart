@@ -14,7 +14,7 @@ class CustomNextBackButtons extends StatelessWidget {
       children: [
         Align(
           alignment: Alignment.bottomLeft,
-          child: CustomTextButton(title: AppStrings.back, onBack: onBack),
+          child: CustomTextButton(title: AppStrings.back, onPressed: onBack),
         ),
 
         //button next to step 3

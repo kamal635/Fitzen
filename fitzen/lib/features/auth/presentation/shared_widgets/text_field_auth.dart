@@ -18,6 +18,7 @@ class TextFieldAuth extends StatelessWidget {
     this.isCenter = false,
     this.widget,
     this.keyboardType,
+    this.spaceBetweenTextField,
   });
   final String titleField;
   final bool obscureText;
@@ -31,6 +32,7 @@ class TextFieldAuth extends StatelessWidget {
   final bool readOnly;
   final Widget? widgetCenter;
   final bool isCenter;
+  final double? spaceBetweenTextField;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +56,7 @@ class TextFieldAuth extends StatelessWidget {
           isCenter: isCenter,
           widgetCenter: widgetCenter,
         ),
-        SizedBox(height: 20.h),
+        SizedBox(height: spaceBetweenTextField ?? 20.h),
       ],
     );
   }

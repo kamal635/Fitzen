@@ -44,8 +44,6 @@ class TrainerRegistrationStepTwo extends StatelessWidget {
                     prefixIcon: AppIcons.yearsExperience,
                     isNumberKeyboard: true,
                     keyboardType: TextInputType.number,
-
-                    // suffixIcon: ,
                   ),
 
                   // specializations

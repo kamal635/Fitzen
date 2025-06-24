@@ -1,14 +1,19 @@
+import 'package:fitzen/core/constant/app_assets.dart';
+import 'package:fitzen/core/constant/app_colors.dart';
 import 'package:fitzen/core/constant/app_icons.dart';
 import 'package:fitzen/core/constant/app_paddings.dart';
 import 'package:fitzen/core/constant/app_strings.dart';
+import 'package:fitzen/core/routing/router_name.dart';
 import 'package:fitzen/core/widgets/custom_button.dart';
-import 'package:fitzen/features/auth/presentation/shared_widgets/already_have_account.dart';
+import 'package:fitzen/core/widgets/custom_text_button.dart';
+import 'package:fitzen/features/auth/presentation/shared_widgets/dont_have_account.dart';
 import 'package:fitzen/features/auth/presentation/shared_widgets/text_field_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
-class TraineeRegistrationBodyPage extends StatelessWidget {
-  const TraineeRegistrationBodyPage({super.key});
+class LoginPageBody extends StatelessWidget {
+  const LoginPageBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,48 +26,54 @@ class TraineeRegistrationBodyPage extends StatelessWidget {
           ),
           child: IntrinsicHeight(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SizedBox(height: 35.h),
+                // app logo
+                SizedBox(
+                  height: 360.h,
+                  width: 360.w,
+                  child: Image.asset(AppAssets.logo),
+                ),
 
-                const TextFieldAuth(
-                  titleField: AppStrings.firstName,
-                  hintText: AppStrings.enterFirstName,
-                  prefixIcon: AppIcons.person,
-                ),
-                const TextFieldAuth(
-                  titleField: AppStrings.lastName,
-                  hintText: AppStrings.enteLastName,
-                  prefixIcon: AppIcons.person,
-                ),
+                // Email
                 const TextFieldAuth(
                   titleField: AppStrings.email,
                   hintText: AppStrings.enteEmail,
                   prefixIcon: AppIcons.email,
                 ),
+
+                // Password
                 const TextFieldAuth(
                   titleField: AppStrings.password,
                   hintText: AppStrings.createPassword,
                   prefixIcon: AppIcons.lock,
                   suffixIcon: AppIcons.visibilityOff,
-                ),
-                const TextFieldAuth(
-                  titleField: AppStrings.confirmPassword,
-                  hintText: AppStrings.confirmYourPassword,
-                  prefixIcon: AppIcons.lock,
-                  suffixIcon: AppIcons.visibilityOff,
+                  spaceBetweenTextField: 0,
                 ),
 
-                SizedBox(height: 35.h),
+                // Forgot Password
+                Align(
+                  alignment: Alignment.topRight,
+                  child: CustomTextButton(
+                    title: AppStrings.forgotPassword,
+                    color: AppColors.secondary,
+                    onPressed: () {
+                      context.push(RouterName.forgotPassword);
+                    },
+                  ),
+                ),
 
-                const CustomButton(title: AppStrings.register),
+                SizedBox(height: 15.h),
+
+                // Login Button
+                const CustomButton(title: AppStrings.login),
 
                 SizedBox(height: 10.h),
 
-                AlreadyHaveAccount(onPressed: () {}),
+                DoNotHaveAccount(onPressed: () {}),
 
-                SizedBox(height: 50.h),
+                SizedBox(height: MediaQuery.of(context).size.height / 10),
               ],
             ),
           ),

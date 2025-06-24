@@ -15,18 +15,18 @@ class OnBoardingModel {
 
 List<OnBoardingModel> listOnboarding = [
   OnBoardingModel(
-    tilte: AppStrings.startFitnessT,
-    subTitle: AppStrings.startFitnessS,
+    tilte: AppStrings.startFitnessTitle,
+    subTitle: AppStrings.startFitnessSubtitle,
     image: AppAssets.startFitness,
   ),
   OnBoardingModel(
-    tilte: AppStrings.buildStrengthT,
-    subTitle: AppStrings.buildStrengthS,
+    tilte: AppStrings.buildStrengthTitle,
+    subTitle: AppStrings.buildStrengthSubtitle,
     image: AppAssets.buildStrength,
   ),
   OnBoardingModel(
-    tilte: AppStrings.healthyFoodT,
-    subTitle: AppStrings.healthyFoodS,
+    tilte: AppStrings.healthyFoodTitle,
+    subTitle: AppStrings.healthyFoodSubtitle,
     image: AppAssets.healthyFood,
   ),
 ];

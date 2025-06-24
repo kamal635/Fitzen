@@ -5,4 +5,5 @@ abstract class AppAssets {
   static const String healthyFood = "assets/images/onboarding/healthy_food.png";
   static const String startFitness =
       "assets/images/onboarding/start_fitness.png";
+  static const String logo = "assets/images/logo/splash_logo.png";
 }
