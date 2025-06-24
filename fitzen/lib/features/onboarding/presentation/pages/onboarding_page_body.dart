@@ -1,3 +1,4 @@
+import 'package:fitzen/core/constant/app_paddings.dart';
 import 'package:fitzen/features/onboarding/presentation/widgets/onboarding_image_title.dart';
 import 'package:fitzen/features/onboarding/presentation/widgets/onboarding_indicator_button.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,7 @@ class OnBoardingPageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8.w),
+      padding: AppPaddings.horizontalGeneralPage,
       child: Column(
         children: [
           const OnBoardingImageAndTitleSection(),
