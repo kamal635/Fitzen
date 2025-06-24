@@ -1,7 +1,7 @@
 import 'package:fitzen/core/routing/router_name.dart';
+import 'package:fitzen/features/auth/presentation/pages/trainee_registration_page/trainer_registration.dart';
 import 'package:fitzen/features/auth/presentation/pages/trainer_registration_page/trainer_registration.dart';
 import 'package:fitzen/features/auth/presentation/pages/who_are_you_page/who_are_you_page.dart';
-
 import 'package:fitzen/features/onboarding/presentation/providers/onboarding_shared_prefs_provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,8 +24,12 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       ),
 
       GoRoute(
-        path: RouterName.createAccountTrainer,
+        path: RouterName.trainerRegistration,
         builder: (context, state) => const TrainerRegistrationPage(),
+      ),
+      GoRoute(
+        path: RouterName.traineeRegistration,
+        builder: (context, state) => const TraineeRegistrationPage(),
       ),
     ],
     redirect: (context, state) {

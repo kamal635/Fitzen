@@ -19,6 +19,7 @@ abstract class AppStrings {
   static const haveAccount = "Already have an account?";
   static const login = "Login";
   static const trainerRegistrationTitle = "Trainer Registration";
+  static const traineeRegistrationTitle = "Trainee Registration";
   static const step1Title = "Basic Information";
   static const step2Title = "Contact & Experience";
   static const step3Title = "Verification & Documents";
@@ -32,6 +33,7 @@ abstract class AppStrings {
   static const password = "Password";
   static const createPassword = "Create a password";
   static const confirmPassword = "Confirm Password";
+  static const createAccount = "Create Account";
   static const confirmYourPassword = "Confirm your password";
   static const phoneNumber = "Phone Number";
   static const enterPhoneNumber = "Enter your phone number";

@@ -31,7 +31,7 @@ class WhoAreYouBodyPage extends StatelessWidget {
               subTitle: AppStrings.subtitleTrainer,
               icon: AppIcons.dumble,
               onTap: () {
-                context.push(RouterName.createAccountTrainer);
+                context.push(RouterName.trainerRegistration);
               },
             ),
 
@@ -42,7 +42,9 @@ class WhoAreYouBodyPage extends StatelessWidget {
               title: AppStrings.trainee,
               subTitle: AppStrings.subtitleTrainee,
               icon: AppIcons.person,
-              onTap: () {},
+              onTap: () {
+                context.push(RouterName.traineeRegistration);
+              },
             ),
 
             SizedBox(height: 20.h),
