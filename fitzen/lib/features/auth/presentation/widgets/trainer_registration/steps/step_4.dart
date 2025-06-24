@@ -1,8 +1,9 @@
 import 'package:fitzen/core/constant/app_colors.dart';
-import 'package:fitzen/core/constant/app_fonts.dart';
+import 'package:fitzen/core/constant/app_icons.dart';
 import 'package:fitzen/core/constant/app_paddings.dart';
 import 'package:fitzen/core/constant/app_strings.dart';
 import 'package:fitzen/core/widgets/custom_button.dart';
+import 'package:fitzen/features/auth/presentation/shared_widgets/icon_title_subtitle_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,22 +17,12 @@ class TrainerRegistrationStepFour extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Icon(Icons.check_circle_outline, color: AppColors.green, size: 100.r),
-
-          SizedBox(height: 16.h),
-
-          Text(
-            AppStrings.step4Title,
-            style: AppTextStyles.headlineLarge,
-            textAlign: TextAlign.center,
-          ),
-
-          SizedBox(height: 16.h),
-
-          Text(
-            AppStrings.underReview,
-            style: AppTextStyles.bodyMedium,
-            textAlign: TextAlign.center,
+          // section Icon / title / subtitle
+          const IconWithTitleAndSubTitleWidget(
+            iconColor: AppColors.green,
+            icon: AppIcons.check,
+            title: AppStrings.step4Title,
+            subTitleitle: AppStrings.underReview,
           ),
 
           SizedBox(height: 48.h),

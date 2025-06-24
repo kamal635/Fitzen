@@ -1,4 +1,8 @@
 import 'package:fitzen/core/routing/router_name.dart';
+import 'package:fitzen/features/auth/presentation/pages/forgot_password/forgot_password_page/forgot_password.dart';
+import 'package:fitzen/features/auth/presentation/pages/forgot_password/open_email_app_page/open_email_app.dart';
+import 'package:fitzen/features/auth/presentation/pages/forgot_password/reset_password_page/reset_password.dart';
+import 'package:fitzen/features/auth/presentation/pages/login_page/login_page.dart';
 import 'package:fitzen/features/auth/presentation/pages/trainee_registration_page/trainer_registration.dart';
 import 'package:fitzen/features/auth/presentation/pages/trainer_registration_page/trainer_registration.dart';
 import 'package:fitzen/features/auth/presentation/pages/who_are_you_page/who_are_you_page.dart';
@@ -27,9 +31,30 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: RouterName.trainerRegistration,
         builder: (context, state) => const TrainerRegistrationPage(),
       ),
+
       GoRoute(
         path: RouterName.traineeRegistration,
         builder: (context, state) => const TraineeRegistrationPage(),
+      ),
+
+      GoRoute(
+        path: RouterName.login,
+        builder: (context, state) => const LoginPage(),
+      ),
+
+      GoRoute(
+        path: RouterName.forgotPassword,
+        builder: (context, state) => const ForgotPasswordPage(),
+      ),
+
+      GoRoute(
+        path: RouterName.openEmail,
+        builder: (context, state) => const OpenEmailAppPage(),
+      ),
+
+      GoRoute(
+        path: RouterName.resetPassword,
+        builder: (context, state) => const ResetPasswordPage(),
       ),
     ],
     redirect: (context, state) {

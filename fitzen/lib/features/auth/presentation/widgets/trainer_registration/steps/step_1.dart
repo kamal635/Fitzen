@@ -20,7 +20,7 @@ class TrainerRegistrationStepOne extends StatelessWidget {
           Expanded(
             child: SingleChildScrollView(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   SizedBox(height: 35.h),
@@ -30,27 +30,36 @@ class TrainerRegistrationStepOne extends StatelessWidget {
 
                   SizedBox(height: 35.h),
 
+                  // First Name
                   const TextFieldAuth(
                     titleField: AppStrings.firstName,
                     hintText: AppStrings.enterFirstName,
                     prefixIcon: AppIcons.person,
                   ),
+
+                  // Last Name
                   const TextFieldAuth(
                     titleField: AppStrings.lastName,
                     hintText: AppStrings.enteLastName,
                     prefixIcon: AppIcons.person,
                   ),
+
+                  // Email
                   const TextFieldAuth(
                     titleField: AppStrings.email,
                     hintText: AppStrings.enteEmail,
                     prefixIcon: AppIcons.email,
                   ),
+
+                  // Password
                   const TextFieldAuth(
                     titleField: AppStrings.password,
                     hintText: AppStrings.createPassword,
                     prefixIcon: AppIcons.lock,
                     suffixIcon: AppIcons.visibilityOff,
                   ),
+
+                  // Confirm Password
                   const TextFieldAuth(
                     titleField: AppStrings.confirmPassword,
                     hintText: AppStrings.confirmYourPassword,

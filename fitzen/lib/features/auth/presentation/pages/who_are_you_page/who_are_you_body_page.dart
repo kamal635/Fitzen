@@ -49,7 +49,11 @@ class WhoAreYouBodyPage extends StatelessWidget {
 
             SizedBox(height: 20.h),
 
-            AlreadyHaveAccount(onPressed: () {}),
+            AlreadyHaveAccount(
+              onPressed: () {
+                context.push(RouterName.login);
+              },
+            ),
           ],
         ),
       ),
