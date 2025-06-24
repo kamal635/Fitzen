@@ -31,12 +31,15 @@ class OnBoardingImageAndTitleSection extends ConsumerWidget {
               ),
               Text(
                 item.tilte,
-                style: AppTextStyles.headline2,
+                style: AppTextStyles.displayMedium,
                 textAlign: TextAlign.center,
               ),
+
+              SizedBox(height: 10.h),
+
               Text(
                 item.subTitle,
-                style: AppTextStyles.body2,
+                style: AppTextStyles.bodyMedium,
                 textAlign: TextAlign.center,
               ),
             ],

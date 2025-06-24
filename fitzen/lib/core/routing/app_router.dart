@@ -1,5 +1,6 @@
 import 'package:fitzen/core/routing/router_name.dart';
-import 'package:fitzen/features/auth/presentation/pages/who_are_you/who_are_you.dart';
+import 'package:fitzen/features/auth/presentation/pages/trainer_registration_page/trainer_registration.dart';
+import 'package:fitzen/features/auth/presentation/pages/who_are_you_page/who_are_you_page.dart';
 
 import 'package:fitzen/features/onboarding/presentation/providers/onboarding_shared_prefs_provider.dart';
 import 'package:go_router/go_router.dart';
@@ -16,9 +17,15 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: RouterName.onboardingPage,
         builder: (context, state) => const OnBoardingPage(),
       ),
+
       GoRoute(
         path: RouterName.whoAreYou,
         builder: (context, state) => const WhoAreYouPage(),
+      ),
+
+      GoRoute(
+        path: RouterName.createAccountTrainer,
+        builder: (context, state) => const TrainerRegistrationPage(),
       ),
     ],
     redirect: (context, state) {

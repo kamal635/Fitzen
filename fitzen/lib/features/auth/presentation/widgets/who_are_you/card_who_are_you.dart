@@ -1,10 +1,11 @@
+import 'package:fitzen/core/constant/app_radius.dart';
 import 'package:flutter/material.dart';
 import 'package:fitzen/core/constant/app_colors.dart';
 import 'package:fitzen/core/constant/app_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CardWhoAreYou extends StatelessWidget {
-  const CardWhoAreYou({
+class WhoAreYouCard extends StatelessWidget {
+  const WhoAreYouCard({
     super.key,
     required this.title,
     required this.subTitle,
@@ -17,31 +18,28 @@ class CardWhoAreYou extends StatelessWidget {
   final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 40.w),
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(20.r),
+    return InkWell(
+      onTap: onTap,
+      borderRadius: AppRadius.radiusCircularGeneral,
 
-        child: Container(
-          height: 160.h,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: AppColors.primary.withValues(alpha: 0.5),
-            borderRadius: BorderRadius.circular(20.r),
-            border: Border.all(color: AppColors.secondary, width: 0.8.r),
-          ),
+      child: Container(
+        height: 160.h,
+        width: 320.w,
+        decoration: BoxDecoration(
+          color: AppColors.darkSlateGray,
+          borderRadius: AppRadius.radiusCircularGeneral,
+          border: Border.all(color: AppColors.secondary, width: 0.8.r),
+        ),
 
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(icon, size: 48.r, color: AppColors.secondary),
-              SizedBox(height: 6.h),
-              Text(title, style: AppTextStyles.headline2),
-              SizedBox(height: 6.h),
-              Text(subTitle, style: AppTextStyles.body2),
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, size: 48.r, color: AppColors.secondary),
+            SizedBox(height: 6.h),
+            Text(title, style: AppTextStyles.headlineMedium),
+            SizedBox(height: 6.h),
+            Text(subTitle, style: AppTextStyles.bodyMedium),
+          ],
         ),
       ),
     );

@@ -1,4 +1,4 @@
-import 'package:fitzen/features/auth/presentation/pages/who_are_you/who_are_you_body.dart';
+import 'package:fitzen/features/auth/presentation/pages/who_are_you_page/who_are_you_body_page.dart';
 import 'package:flutter/material.dart';
 
 class WhoAreYouPage extends StatelessWidget {
@@ -6,6 +6,6 @@ class WhoAreYouPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: WhoAreYouPageBody());
+    return const Scaffold(body: WhoAreYouBodyPage());
   }
 }
