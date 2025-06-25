@@ -1,8 +1,8 @@
 import 'package:fitzen/core/constant/app_colors.dart';
 import 'package:fitzen/core/constant/app_fonts.dart';
 import 'package:fitzen/core/constant/app_strings.dart';
+import 'package:fitzen/core/widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AlreadyHaveAccount extends StatelessWidget {
   const AlreadyHaveAccount({super.key, required this.onPressed});
@@ -13,24 +13,18 @@ class AlreadyHaveAccount extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          AppStrings.haveAccount,
-          style: AppTextStyles.titleMedium.copyWith(
-            decorationStyle: TextDecorationStyle.solid,
-            decorationColor: AppColors.white,
-            decorationThickness: 2.h,
+        Flexible(
+          child: Text(
+            AppStrings.haveAccount,
+            overflow: TextOverflow.ellipsis,
+            style: AppTextStyles.titleLarge.copyWith(color: Colors.white70),
           ),
         ),
 
-        TextButton(
+        CustomTextButton(
+          title: AppStrings.login,
           onPressed: onPressed,
-
-          child: Text(
-            AppStrings.login,
-            style: AppTextStyles.titleMedium.copyWith(
-              color: AppColors.secondary,
-            ),
-          ),
+          color: AppColors.secondary,
         ),
       ],
     );

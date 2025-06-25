@@ -1,8 +1,8 @@
 import 'package:fitzen/core/constant/app_colors.dart';
 import 'package:fitzen/core/constant/app_fonts.dart';
 import 'package:fitzen/core/constant/app_strings.dart';
+import 'package:fitzen/core/widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoNotHaveAccount extends StatelessWidget {
   const DoNotHaveAccount({super.key, required this.onPressed});
@@ -13,23 +13,18 @@ class DoNotHaveAccount extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          AppStrings.dontHaveAccount,
-          style: AppTextStyles.titleMedium.copyWith(
-            decorationColor: AppColors.white,
-            decorationThickness: 2.h,
+        Flexible(
+          child: Text(
+            overflow: TextOverflow.ellipsis,
+            AppStrings.dontHaveAccount,
+            style: AppTextStyles.titleLarge.copyWith(color: Colors.white70),
           ),
         ),
 
-        TextButton(
+        CustomTextButton(
+          title: AppStrings.register,
           onPressed: onPressed,
-
-          child: Text(
-            AppStrings.register,
-            style: AppTextStyles.titleMedium.copyWith(
-              color: AppColors.secondary,
-            ),
-          ),
+          color: AppColors.secondary,
         ),
       ],
     );

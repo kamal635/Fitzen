@@ -26,7 +26,7 @@ class LoginPageBody extends StatelessWidget {
           ),
           child: IntrinsicHeight(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 // app logo
@@ -72,8 +72,6 @@ class LoginPageBody extends StatelessWidget {
                 SizedBox(height: 10.h),
 
                 DoNotHaveAccount(onPressed: () {}),
-
-                SizedBox(height: MediaQuery.of(context).size.height / 10),
               ],
             ),
           ),

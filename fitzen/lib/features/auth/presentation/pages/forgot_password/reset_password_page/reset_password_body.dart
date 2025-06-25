@@ -28,7 +28,7 @@ class ResetPasswordPageBody extends StatelessWidget {
                 // section Icon / title / subtitle
                 const IconWithTitleAndSubTitleWidget(
                   iconColor: AppColors.secondary,
-                  icon: AppIcons.check1,
+                  icon: AppIcons.resetPassword,
                   title: AppStrings.resetPasswordTitle,
                   subTitleitle: AppStrings.resetPasswordSubTitle,
                 ),

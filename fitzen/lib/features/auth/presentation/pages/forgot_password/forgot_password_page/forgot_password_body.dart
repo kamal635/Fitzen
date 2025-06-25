@@ -31,7 +31,7 @@ class ForgotPasswordPageBody extends StatelessWidget {
                 // section Icon / title / subtitle
                 const IconWithTitleAndSubTitleWidget(
                   iconColor: AppColors.secondary,
-                  icon: AppIcons.dumble,
+                  icon: AppIcons.lockOpen,
                   title: AppStrings.forgotPasswordTitle,
                   subTitleitle: AppStrings.forgotPasswordSubTitle,
                 ),
@@ -73,14 +73,5 @@ class ForgotPasswordPageBody extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }
