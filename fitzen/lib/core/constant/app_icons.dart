@@ -12,5 +12,6 @@ abstract class AppIcons {
   static const IconData certificate = Icons.workspace_premium;
   static const IconData document = Icons.description;
   static const IconData check = Icons.check_circle_outline;
-  static const IconData check1 = Icons.lock_reset;
+  static const IconData resetPassword = Icons.lock_reset;
+  static const IconData lockOpen = Icons.lock_open;
 }

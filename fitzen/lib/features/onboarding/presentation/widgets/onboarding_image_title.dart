@@ -29,18 +29,26 @@ class OnBoardingImageAndTitleSection extends ConsumerWidget {
                 width: imageWidth,
                 child: Image.asset(item.image),
               ),
-              Text(
-                item.tilte,
-                style: AppTextStyles.displayMedium,
-                textAlign: TextAlign.center,
+              Flexible(
+                child: Text(
+                  item.tilte,
+                  style: AppTextStyles.displayMedium,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 3,
+                  textAlign: TextAlign.center,
+                ),
               ),
 
               SizedBox(height: 10.h),
 
-              Text(
-                item.subTitle,
-                style: AppTextStyles.bodyMedium,
-                textAlign: TextAlign.center,
+              Flexible(
+                child: Text(
+                  item.subTitle,
+                  style: AppTextStyles.bodyMedium,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 3,
+                  textAlign: TextAlign.center,
+                ),
               ),
             ],
           );

@@ -34,71 +34,67 @@ class CustomTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      // height: 80.h,
-      child: TextFormField(
-        cursorColor:
-            AppColors.secondary, //Sets the color of the blinking cursor
-        obscureText: obscureText, //To hide the password
-        keyboardType: keyboardType,
-        readOnly: readOnly,
+    return TextFormField(
+      cursorColor: AppColors.secondary, //Sets the color of the blinking cursor
+      obscureText: obscureText, //To hide the password
+      keyboardType: keyboardType,
+      readOnly: readOnly,
 
-        inputFormatters: [
-          if (isNumberKeyboard)
-            FilteringTextInputFormatter.digitsOnly, // only numbers
-        ],
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(horizontal: 5.h),
-          filled: true,
-          fillColor: AppColors.darkSlateGray,
-          hintText: hintText,
-          hintStyle: AppTextStyles.labelSmall.copyWith(color: AppColors.grey),
+      inputFormatters: [
+        if (isNumberKeyboard)
+          FilteringTextInputFormatter.digitsOnly, // only numbers
+      ],
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(vertical: 15.h),
+        filled: true,
+        fillColor: AppColors.darkSlateGray,
+        hintText: hintText,
+        hintStyle: AppTextStyles.titleMedium.copyWith(color: AppColors.grey),
 
-          prefixIcon: isCenter
-              ? widgetCenter
-              : Icon(
-                  prefixIcon,
-                  size: 24.r,
-                  color: AppColors.grey,
-                ), // show at the beginning of the textfield
-          suffixIcon:
-              widgetSuffix ??
-              (isSuffixIcon && suffixIcon != null
-                  ? Icon(suffixIcon, size: 24.r, color: AppColors.grey)
-                  : null), //  show at the end of the textfield
-          //=======================================================//
-          //Default border style (used in general unless overridden below)
-          border: OutlineInputBorder(
-            borderRadius: AppRadius.radiusCircularGeneral,
-            borderSide: const BorderSide(color: AppColors.grey, width: 1),
+        prefixIcon: isCenter
+            ? widgetCenter
+            : Icon(
+                prefixIcon,
+                size: 24.r,
+                color: AppColors.grey,
+              ), // show at the beginning of the textfield
+        suffixIcon:
+            widgetSuffix ??
+            (isSuffixIcon && suffixIcon != null
+                ? Icon(suffixIcon, size: 24.r, color: AppColors.grey)
+                : null), //  show at the end of the textfield
+        //=======================================================//
+        //Default border style (used in general unless overridden below)
+        border: OutlineInputBorder(
+          borderRadius: AppRadius.radiusCircularGeneral,
+          borderSide: const BorderSide(color: AppColors.grey, width: 1),
+        ),
+
+        // Border when the field is enabled but not focused
+        enabledBorder: OutlineInputBorder(
+          borderRadius: AppRadius.radiusCircularGeneral,
+          borderSide: const BorderSide(color: AppColors.darkGrey, width: 1),
+        ),
+
+        // Border when the field is focused (user is typing)
+        focusedBorder: OutlineInputBorder(
+          borderRadius: AppRadius.radiusCircularGeneral,
+          borderSide: BorderSide(
+            color: readOnly ? AppColors.darkGrey : AppColors.secondary,
+            width: 1,
           ),
+        ),
 
-          // Border when the field is enabled but not focused
-          enabledBorder: OutlineInputBorder(
-            borderRadius: AppRadius.radiusCircularGeneral,
-            borderSide: const BorderSide(color: AppColors.darkGrey, width: 1),
-          ),
+        // Error border when validation fails
+        errorBorder: OutlineInputBorder(
+          borderRadius: AppRadius.radiusCircularGeneral,
+          borderSide: const BorderSide(color: AppColors.red, width: 1),
+        ),
 
-          // Border when the field is focused (user is typing)
-          focusedBorder: OutlineInputBorder(
-            borderRadius: AppRadius.radiusCircularGeneral,
-            borderSide: BorderSide(
-              color: readOnly ? AppColors.darkGrey : AppColors.secondary,
-              width: 1,
-            ),
-          ),
-
-          // Error border when validation fails
-          errorBorder: OutlineInputBorder(
-            borderRadius: AppRadius.radiusCircularGeneral,
-            borderSide: const BorderSide(color: AppColors.red, width: 1),
-          ),
-
-          // Error border when focused and validation fails
-          focusedErrorBorder: OutlineInputBorder(
-            borderRadius: AppRadius.radiusCircularGeneral,
-            borderSide: const BorderSide(color: AppColors.red, width: 1),
-          ),
+        // Error border when focused and validation fails
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: AppRadius.radiusCircularGeneral,
+          borderSide: const BorderSide(color: AppColors.red, width: 1),
         ),
       ),
     );
