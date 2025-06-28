@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:fitzen/core/services/firebase_app_providers.dart';
 import 'package:fitzen/fitzen_app.dart';
 import 'package:fitzen/core/services/shared_prefs_provider.dart';
 import 'package:flutter/material.dart';
@@ -10,10 +12,15 @@ Future<void> main() async {
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   final prefs = await SharedPreferences.getInstance();
+  final firebaseApp = await Firebase.initializeApp();
 
   runApp(
     ProviderScope(
-      overrides: [sharedPreferencesProvider.overrideWithValue(prefs)],
+      overrides: [
+        //  Provide a single initialized instance to the entire app
+        sharedPreferencesProvider.overrideWithValue(prefs),
+        firebaseAppProvider.overrideWithValue(firebaseApp),
+      ],
       child: const FitzenApp(),
     ),
   );
