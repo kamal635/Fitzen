@@ -1,52 +1,56 @@
 import 'package:fitzen/features/auth/data/models/approval_status.dart';
 import 'package:fitzen/features/auth/domain/entities/trainer_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
+part 'trainer_model.freezed.dart';
 part 'trainer_model.g.dart';
 
-@JsonSerializable()
-class TrainerModel extends TrainerEntity {
-  TrainerModel({
-    required super.firstName,
-    required super.lastName,
-    required super.emailAddress,
-    required super.phoneNumber,
-    required super.yearsOfExperience,
-    required super.specializations,
-    required super.certificationName,
-    required super.uploadCertificationUrl,
-    super.isApproved,
-  });
-  //==================== from/to Firestore ==========================
+@freezed
+abstract class TrainerModel with _$TrainerModel {
+  const factory TrainerModel({
+    required String uid,
+    required String firstName,
+    required String lastName,
+    required String emailAddress,
+    required String phoneNumber,
+    required int yearsOfExperience,
+    required String specializations,
+    required String certificationName,
+    required ApprovalStatus isApproved,
+    String? uploadCertificationUrl,
+  }) = _TrainerModel;
+
   factory TrainerModel.fromJson(Map<String, dynamic> json) =>
       _$TrainerModelFromJson(json);
+}
 
-  Map<String, dynamic> toJson() => _$TrainerModelToJson(this);
-
-  //==================== from/to Entity ==========================
-  factory TrainerModel.fromEntity(TrainerEntity trainerEntity) {
-    return TrainerModel(
-      phoneNumber: trainerEntity.phoneNumber,
-      yearsOfExperience: trainerEntity.yearsOfExperience,
-      specializations: trainerEntity.specializations,
-      certificationName: trainerEntity.certificationName,
-      uploadCertificationUrl: trainerEntity.uploadCertificationUrl,
-      isApproved: trainerEntity.isApproved,
-      firstName: trainerEntity.firstName,
-      lastName: trainerEntity.lastName,
-      emailAddress: trainerEntity.emailAddress,
+extension TrainerModelX on TrainerModel {
+  TrainerEntity toEntity() {
+    return TrainerEntity(
+      uid: uid,
+      firstName: firstName,
+      lastName: lastName,
+      emailAddress: emailAddress,
+      phoneNumber: phoneNumber,
+      yearsOfExperience: yearsOfExperience,
+      specializations: specializations,
+      certificationName: certificationName,
+      uploadCertificationUrl: uploadCertificationUrl,
+      isApproved: isApproved,
     );
   }
 
-  TrainerEntity toEntity() => TrainerEntity(
-    phoneNumber: phoneNumber,
-    yearsOfExperience: yearsOfExperience,
-    specializations: specializations,
-    certificationName: certificationName,
-    uploadCertificationUrl: uploadCertificationUrl,
-    isApproved: isApproved,
-    firstName: firstName,
-    lastName: lastName,
-    emailAddress: emailAddress,
-  );
+  static TrainerModel fromEntity(TrainerEntity entity) {
+    return TrainerModel(
+      uid: entity.uid,
+      firstName: entity.firstName,
+      lastName: entity.lastName,
+      emailAddress: entity.emailAddress,
+      phoneNumber: entity.phoneNumber,
+      yearsOfExperience: entity.yearsOfExperience,
+      specializations: entity.specializations,
+      certificationName: entity.certificationName,
+      uploadCertificationUrl: entity.uploadCertificationUrl,
+      isApproved: entity.isApproved,
+    );
+  }
 }
