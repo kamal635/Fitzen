@@ -7,6 +7,7 @@ import 'package:fitzen/features/auth/domain/entities/trainer_entity.dart';
 abstract class TrainerRepository {
   Future<Either<Failure, TrainerEntity>> registerTrainer(
     TrainerEntity trainer,
-    File? certificate,
+    File certificate,
+    String password,
   );
 }

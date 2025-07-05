@@ -1,5 +1,5 @@
-import 'package:fitzen/core/constant/app_strings.dart';
 import 'package:fitzen/core/error/failure.dart';
+import 'package:fitzen/core/error/firebase_strings/auth_failure_strings.dart';
 import 'package:flutter/foundation.dart';
 
 @immutable
@@ -7,60 +7,61 @@ class AuthFailure extends Failure {
   const AuthFailure._({required super.message});
 
   const AuthFailure.invalidEmail()
-    : this._(message: AppStrings.invalidEmailMessage);
+    : this._(message: AuthFailureStrings.invalidEmailMessage);
   const AuthFailure.emailAlreadyInUse()
-    : this._(message: AppStrings.emailAlreadyInUseMessage);
+    : this._(message: AuthFailureStrings.emailAlreadyInUseMessage);
   const AuthFailure.weakPassword()
-    : this._(message: AppStrings.weakPasswordMessage);
+    : this._(message: AuthFailureStrings.weakPasswordMessage);
   const AuthFailure.userNotFound()
-    : this._(message: AppStrings.userNotFoundMessage);
+    : this._(message: AuthFailureStrings.userNotFoundMessage);
   const AuthFailure.wrongPassword()
-    : this._(message: AppStrings.wrongPasswordMessage);
+    : this._(message: AuthFailureStrings.wrongPasswordMessage);
   const AuthFailure.invalidCredential()
-    : this._(message: AppStrings.invalidCredentialMessage);
+    : this._(message: AuthFailureStrings.invalidCredentialMessage);
   const AuthFailure.userDisabled()
-    : this._(message: AppStrings.userDisabledMessage);
+    : this._(message: AuthFailureStrings.userDisabledMessage);
   const AuthFailure.operationNotAllowed()
-    : this._(message: AppStrings.operationNotAllowedMessage);
+    : this._(message: AuthFailureStrings.operationNotAllowedMessage);
   const AuthFailure.tooManyRequests()
-    : this._(message: AppStrings.tooManyRequestsMessage);
+    : this._(message: AuthFailureStrings.tooManyRequestsMessage);
   const AuthFailure.requiresRecentLogin()
-    : this._(message: AppStrings.requiresRecentLoginMessage);
+    : this._(message: AuthFailureStrings.requiresRecentLoginMessage);
   const AuthFailure.networkError()
-    : this._(message: AppStrings.networkRequestFailedMessage);
+    : this._(message: AuthFailureStrings.networkRequestFailedMessage);
   const AuthFailure.internalError()
-    : this._(message: AppStrings.internalErrorMessage);
+    : this._(message: AuthFailureStrings.internalErrorMessage);
   const AuthFailure.unknown(String code)
-    : this._(message: '${AppStrings.unknownErrorMessage} (code: $code)');
+    : this._(
+        message: '${AuthFailureStrings.unknownErrorMessage} (code: $code)',
+      );
 
   factory AuthFailure.fromCode(String code) {
     switch (code) {
-      case AppStrings.invalidEmailCode:
+      case AuthFailureStrings.invalidEmailCode:
         return const AuthFailure.invalidEmail();
-      case AppStrings.emailAlreadyInUseCode:
+      case AuthFailureStrings.emailAlreadyInUseCode:
         return const AuthFailure.emailAlreadyInUse();
-      case AppStrings.weakPasswordCode:
+      case AuthFailureStrings.weakPasswordCode:
         return const AuthFailure.weakPassword();
-      case AppStrings.userNotFoundCode:
+      case AuthFailureStrings.userNotFoundCode:
         return const AuthFailure.userNotFound();
-      case AppStrings.wrongPasswordCode:
+      case AuthFailureStrings.wrongPasswordCode:
         return const AuthFailure.wrongPassword();
-      case AppStrings.invalidCredentialCode:
+      case AuthFailureStrings.invalidCredentialCode:
         return const AuthFailure.invalidCredential();
-      case AppStrings.userDisabledCode:
+      case AuthFailureStrings.userDisabledCode:
         return const AuthFailure.userDisabled();
-      case AppStrings.operationNotAllowedCode:
+      case AuthFailureStrings.operationNotAllowedCode:
         return const AuthFailure.operationNotAllowed();
-      case AppStrings.tooManyRequestsCode:
+      case AuthFailureStrings.tooManyRequestsCode:
         return const AuthFailure.tooManyRequests();
-      case AppStrings.requiresRecentLoginCode:
+      case AuthFailureStrings.requiresRecentLoginCode:
         return const AuthFailure.requiresRecentLogin();
-      case AppStrings.networkRequestFailedCode:
+      case AuthFailureStrings.networkRequestFailedCode:
         return const AuthFailure.networkError();
-      case AppStrings.internalErrorCode:
+      case AuthFailureStrings.internalErrorCode:
         return const AuthFailure.internalError();
-      case AppStrings.unknownCode:
-        return const AuthFailure.unknown(AppStrings.unknownCode);
+
       default:
         return AuthFailure.unknown(code);
     }
