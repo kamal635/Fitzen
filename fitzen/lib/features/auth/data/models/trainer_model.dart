@@ -13,7 +13,7 @@ abstract class TrainerModel with _$TrainerModel {
     required String emailAddress,
     required String phoneNumber,
     required int yearsOfExperience,
-    required String specializations,
+    required List<String> specializations,
     required String certificationName,
     required ApprovalStatus isApproved,
     String? uploadCertificationUrl,

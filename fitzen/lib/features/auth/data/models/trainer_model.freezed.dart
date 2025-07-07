@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TrainerModel {
 
- String get uid; String get firstName; String get lastName; String get emailAddress; String get phoneNumber; int get yearsOfExperience; String get specializations; String get certificationName; ApprovalStatus get isApproved; String? get uploadCertificationUrl;
+ String get uid; String get firstName; String get lastName; String get emailAddress; String get phoneNumber; int get yearsOfExperience; List<String> get specializations; String get certificationName; ApprovalStatus get isApproved; String? get uploadCertificationUrl;
 /// Create a copy of TrainerModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,12 +29,12 @@ $TrainerModelCopyWith<TrainerModel> get copyWith => _$TrainerModelCopyWithImpl<T
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is TrainerModel&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.firstName, firstName) || other.firstName == firstName)&&(identical(other.lastName, lastName) || other.lastName == lastName)&&(identical(other.emailAddress, emailAddress) || other.emailAddress == emailAddress)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.yearsOfExperience, yearsOfExperience) || other.yearsOfExperience == yearsOfExperience)&&(identical(other.specializations, specializations) || other.specializations == specializations)&&(identical(other.certificationName, certificationName) || other.certificationName == certificationName)&&(identical(other.isApproved, isApproved) || other.isApproved == isApproved)&&(identical(other.uploadCertificationUrl, uploadCertificationUrl) || other.uploadCertificationUrl == uploadCertificationUrl));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TrainerModel&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.firstName, firstName) || other.firstName == firstName)&&(identical(other.lastName, lastName) || other.lastName == lastName)&&(identical(other.emailAddress, emailAddress) || other.emailAddress == emailAddress)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.yearsOfExperience, yearsOfExperience) || other.yearsOfExperience == yearsOfExperience)&&const DeepCollectionEquality().equals(other.specializations, specializations)&&(identical(other.certificationName, certificationName) || other.certificationName == certificationName)&&(identical(other.isApproved, isApproved) || other.isApproved == isApproved)&&(identical(other.uploadCertificationUrl, uploadCertificationUrl) || other.uploadCertificationUrl == uploadCertificationUrl));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uid,firstName,lastName,emailAddress,phoneNumber,yearsOfExperience,specializations,certificationName,isApproved,uploadCertificationUrl);
+int get hashCode => Object.hash(runtimeType,uid,firstName,lastName,emailAddress,phoneNumber,yearsOfExperience,const DeepCollectionEquality().hash(specializations),certificationName,isApproved,uploadCertificationUrl);
 
 @override
 String toString() {
@@ -49,7 +49,7 @@ abstract mixin class $TrainerModelCopyWith<$Res>  {
   factory $TrainerModelCopyWith(TrainerModel value, $Res Function(TrainerModel) _then) = _$TrainerModelCopyWithImpl;
 @useResult
 $Res call({
- String uid, String firstName, String lastName, String emailAddress, String phoneNumber, int yearsOfExperience, String specializations, String certificationName, ApprovalStatus isApproved, String? uploadCertificationUrl
+ String uid, String firstName, String lastName, String emailAddress, String phoneNumber, int yearsOfExperience, List<String> specializations, String certificationName, ApprovalStatus isApproved, String? uploadCertificationUrl
 });
 
 
@@ -75,7 +75,7 @@ as String,emailAddress: null == emailAddress ? _self.emailAddress : emailAddress
 as String,phoneNumber: null == phoneNumber ? _self.phoneNumber : phoneNumber // ignore: cast_nullable_to_non_nullable
 as String,yearsOfExperience: null == yearsOfExperience ? _self.yearsOfExperience : yearsOfExperience // ignore: cast_nullable_to_non_nullable
 as int,specializations: null == specializations ? _self.specializations : specializations // ignore: cast_nullable_to_non_nullable
-as String,certificationName: null == certificationName ? _self.certificationName : certificationName // ignore: cast_nullable_to_non_nullable
+as List<String>,certificationName: null == certificationName ? _self.certificationName : certificationName // ignore: cast_nullable_to_non_nullable
 as String,isApproved: null == isApproved ? _self.isApproved : isApproved // ignore: cast_nullable_to_non_nullable
 as ApprovalStatus,uploadCertificationUrl: freezed == uploadCertificationUrl ? _self.uploadCertificationUrl : uploadCertificationUrl // ignore: cast_nullable_to_non_nullable
 as String?,
@@ -89,7 +89,7 @@ as String?,
 @JsonSerializable()
 
 class _TrainerModel implements TrainerModel {
-  const _TrainerModel({required this.uid, required this.firstName, required this.lastName, required this.emailAddress, required this.phoneNumber, required this.yearsOfExperience, required this.specializations, required this.certificationName, required this.isApproved, this.uploadCertificationUrl});
+  const _TrainerModel({required this.uid, required this.firstName, required this.lastName, required this.emailAddress, required this.phoneNumber, required this.yearsOfExperience, required final  List<String> specializations, required this.certificationName, required this.isApproved, this.uploadCertificationUrl}): _specializations = specializations;
   factory _TrainerModel.fromJson(Map<String, dynamic> json) => _$TrainerModelFromJson(json);
 
 @override final  String uid;
@@ -98,7 +98,13 @@ class _TrainerModel implements TrainerModel {
 @override final  String emailAddress;
 @override final  String phoneNumber;
 @override final  int yearsOfExperience;
-@override final  String specializations;
+ final  List<String> _specializations;
+@override List<String> get specializations {
+  if (_specializations is EqualUnmodifiableListView) return _specializations;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_specializations);
+}
+
 @override final  String certificationName;
 @override final  ApprovalStatus isApproved;
 @override final  String? uploadCertificationUrl;
@@ -116,12 +122,12 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TrainerModel&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.firstName, firstName) || other.firstName == firstName)&&(identical(other.lastName, lastName) || other.lastName == lastName)&&(identical(other.emailAddress, emailAddress) || other.emailAddress == emailAddress)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.yearsOfExperience, yearsOfExperience) || other.yearsOfExperience == yearsOfExperience)&&(identical(other.specializations, specializations) || other.specializations == specializations)&&(identical(other.certificationName, certificationName) || other.certificationName == certificationName)&&(identical(other.isApproved, isApproved) || other.isApproved == isApproved)&&(identical(other.uploadCertificationUrl, uploadCertificationUrl) || other.uploadCertificationUrl == uploadCertificationUrl));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TrainerModel&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.firstName, firstName) || other.firstName == firstName)&&(identical(other.lastName, lastName) || other.lastName == lastName)&&(identical(other.emailAddress, emailAddress) || other.emailAddress == emailAddress)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.yearsOfExperience, yearsOfExperience) || other.yearsOfExperience == yearsOfExperience)&&const DeepCollectionEquality().equals(other._specializations, _specializations)&&(identical(other.certificationName, certificationName) || other.certificationName == certificationName)&&(identical(other.isApproved, isApproved) || other.isApproved == isApproved)&&(identical(other.uploadCertificationUrl, uploadCertificationUrl) || other.uploadCertificationUrl == uploadCertificationUrl));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uid,firstName,lastName,emailAddress,phoneNumber,yearsOfExperience,specializations,certificationName,isApproved,uploadCertificationUrl);
+int get hashCode => Object.hash(runtimeType,uid,firstName,lastName,emailAddress,phoneNumber,yearsOfExperience,const DeepCollectionEquality().hash(_specializations),certificationName,isApproved,uploadCertificationUrl);
 
 @override
 String toString() {
@@ -136,7 +142,7 @@ abstract mixin class _$TrainerModelCopyWith<$Res> implements $TrainerModelCopyWi
   factory _$TrainerModelCopyWith(_TrainerModel value, $Res Function(_TrainerModel) _then) = __$TrainerModelCopyWithImpl;
 @override @useResult
 $Res call({
- String uid, String firstName, String lastName, String emailAddress, String phoneNumber, int yearsOfExperience, String specializations, String certificationName, ApprovalStatus isApproved, String? uploadCertificationUrl
+ String uid, String firstName, String lastName, String emailAddress, String phoneNumber, int yearsOfExperience, List<String> specializations, String certificationName, ApprovalStatus isApproved, String? uploadCertificationUrl
 });
 
 
@@ -161,8 +167,8 @@ as String,lastName: null == lastName ? _self.lastName : lastName // ignore: cast
 as String,emailAddress: null == emailAddress ? _self.emailAddress : emailAddress // ignore: cast_nullable_to_non_nullable
 as String,phoneNumber: null == phoneNumber ? _self.phoneNumber : phoneNumber // ignore: cast_nullable_to_non_nullable
 as String,yearsOfExperience: null == yearsOfExperience ? _self.yearsOfExperience : yearsOfExperience // ignore: cast_nullable_to_non_nullable
-as int,specializations: null == specializations ? _self.specializations : specializations // ignore: cast_nullable_to_non_nullable
-as String,certificationName: null == certificationName ? _self.certificationName : certificationName // ignore: cast_nullable_to_non_nullable
+as int,specializations: null == specializations ? _self._specializations : specializations // ignore: cast_nullable_to_non_nullable
+as List<String>,certificationName: null == certificationName ? _self.certificationName : certificationName // ignore: cast_nullable_to_non_nullable
 as String,isApproved: null == isApproved ? _self.isApproved : isApproved // ignore: cast_nullable_to_non_nullable
 as ApprovalStatus,uploadCertificationUrl: freezed == uploadCertificationUrl ? _self.uploadCertificationUrl : uploadCertificationUrl // ignore: cast_nullable_to_non_nullable
 as String?,

@@ -5,7 +5,7 @@ class TrainerEntity extends UserEntity {
   final String uid;
   final String phoneNumber;
   final int yearsOfExperience;
-  final String specializations;
+  final List<String> specializations;
   final String certificationName;
   final String? uploadCertificationUrl;
   final ApprovalStatus isApproved;

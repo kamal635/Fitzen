@@ -14,7 +14,9 @@ _TrainerModel _$TrainerModelFromJson(Map<String, dynamic> json) =>
       emailAddress: json['emailAddress'] as String,
       phoneNumber: json['phoneNumber'] as String,
       yearsOfExperience: (json['yearsOfExperience'] as num).toInt(),
-      specializations: json['specializations'] as String,
+      specializations: (json['specializations'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
       certificationName: json['certificationName'] as String,
       isApproved: $enumDecode(_$ApprovalStatusEnumMap, json['isApproved']),
       uploadCertificationUrl: json['uploadCertificationUrl'] as String?,
