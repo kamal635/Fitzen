@@ -15,7 +15,11 @@ class TrainerValidator
         NameValidatorMixin,
         ConfirmPasswordValidatorMixin,
         PhoneNumberMixinValidator {
-  //================== validator years of experience ================
+  //
+  //-------------------------------------------------------------------
+  //
+
+  // validator years of experience
   String? validateYearsOfExperience(String? years) {
     if (years == null || years.trim().isEmpty) {
       return ValidationMessages.yearsOfExperienceEmpty;
@@ -39,7 +43,11 @@ class TrainerValidator
     return null; // valid
   }
 
-  //================== validator specializations ================
+  //
+  //-------------------------------------------------------------------
+  //
+
+  // validator specializations
   String? validateSpecializations(List<String>? specs) {
     if (specs == null || specs.isEmpty) {
       return ValidationMessages.specializationMustAddOne;
@@ -58,7 +66,12 @@ class TrainerValidator
     return null; // valid
   }
 
-  //================== validator Certification name ================
+  //
+  //-------------------------------------------------------------------
+  //
+
+  // validator Certification name
+
   String? validateCertificationName(String? cert) {
     if (cert == null || cert.trim().isEmpty || cert.trim().length < 2) {
       return ValidationMessages.certificationTooShort;
@@ -70,7 +83,11 @@ class TrainerValidator
     return null; // valid
   }
 
-  //================== validator upload certitcation ================
+  //
+  //-------------------------------------------------------------------
+  //
+
+  // validator upload certitcation
   String? validateUploadCertification(File? file) {
     if (file == null) {
       return ValidationMessages.mustSelectCertificate;
