@@ -18,6 +18,13 @@ mixin NameValidatorMixin {
         fieldName,
       );
     }
+
+    final containsLettersRegex = RegExp(
+      ValidationConstants.containsLettersRegex,
+    );
+    if (!containsLettersRegex.hasMatch(name)) {
+      return ValidationMessages.containsLettersName;
+    }
     return null; // valid
   }
 }

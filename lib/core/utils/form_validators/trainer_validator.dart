@@ -10,9 +10,9 @@ import 'package:fitzen/core/utils/form_validators/mixins/phone_number_mixin_vali
 /// Inherits common validations and adds trainer-specific validations.
 class TrainerValidator
     with
+        NameValidatorMixin,
         EmailValidatorMixin,
         PasswordValidatorMixin,
-        NameValidatorMixin,
         ConfirmPasswordValidatorMixin,
         PhoneNumberMixinValidator {
   //
@@ -61,6 +61,13 @@ class TrainerValidator
       if (spec.trim().length > 50) {
         return ValidationMessages.specializationTooHigh;
       }
+
+      final containsLettersRegex = RegExp(
+        ValidationConstants.containsLettersRegex,
+      );
+      if (!containsLettersRegex.hasMatch(spec.trim())) {
+        return ValidationMessages.specializationTooHigh;
+      }
     }
 
     return null; // valid
@@ -80,6 +87,13 @@ class TrainerValidator
     if (cert.length > 40) {
       return ValidationMessages.certificationTooHigh;
     }
+
+    final containsLettersRegex = RegExp(
+      ValidationConstants.containsLettersRegex,
+    );
+    if (!containsLettersRegex.hasMatch(cert.trim())) {
+      return ValidationMessages.containsLettersCertification;
+    }
     return null; // valid
   }
 
@@ -94,6 +108,10 @@ class TrainerValidator
     }
     return null; // valid
   }
+
+  //
+  //-------------------------------------------------------------------
+  //
 
   // validator Terms Agreement
   String? validateTermsAgreement(bool terms) {

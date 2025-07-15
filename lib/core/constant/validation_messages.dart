@@ -1,6 +1,8 @@
 abstract class ValidationMessages {
   static const String emailEmpty = "Email can't be empty";
   static const String invalidEmailFormat = "Invalid email format";
+  static const String containsLettersEmail =
+      "Email must include at least one letter.";
 
   static const String passwordEmpty = "Password can't be empty";
   static const String passwordTooShort =
@@ -12,9 +14,12 @@ abstract class ValidationMessages {
   static const String nameEmpty = "{fieldName} can't be empty";
   static const String nameTooShort =
       "{fieldName} must be at least 2 characters";
+  static const String containsLettersName =
+      "Name must include at least one letter.";
 
   static const String phoneEmpty = "Phone number can't be empty";
   static const String invalidPhoneNumber = "Invalid phone number";
+  static const String digits = 'Phone number must contain digits only';
 
   static const String yearsOfExperienceEmpty =
       "Years of experience can't be empty";
@@ -31,11 +36,15 @@ abstract class ValidationMessages {
       "Each specialization must be at least 2 characters long.";
   static const String specializationTooHigh =
       "Each specialization must be less than 50 characters.";
+  static const String containsLettersSpecialization =
+      "Specialization must include at least one letter.";
 
   static const String certificationTooShort =
       "Certification Name must be at least 2 characters long.";
   static const String certificationTooHigh =
       "Certification Name must be less than 40 characters.";
+  static const String containsLettersCertification =
+      "Certification must include at least one letter.";
 
   static const String mustSelectCertificate =
       "Please select a certification file.";
@@ -46,8 +55,10 @@ abstract class ValidationMessages {
 
 abstract class ValidationConstants {
   static const String emailRegex = r'^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$';
+  static const String containsLettersRegex = r'[a-zA-Z]';
   static const String phoneRegex = r'^\+?[0-9]{7,15}$';
   static const String parseSpecializationsRegex = r'[,\s;/]+';
+  static const String digitsRegex = r'^\d+$';
   static const String name = 'Name';
   static const String fieldName = '{fieldName}';
   static const String max = '{max}';

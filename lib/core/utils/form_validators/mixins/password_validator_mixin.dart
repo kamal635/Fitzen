@@ -2,7 +2,7 @@ import 'package:fitzen/core/constant/validation_messages.dart';
 
 mixin PasswordValidatorMixin {
   String? validatePassword(String? password) {
-    if (password == null || password.isEmpty) {
+    if (password == null || password.trim().isEmpty) {
       return ValidationMessages.passwordEmpty;
     }
     if (password.length < 6) {
@@ -14,7 +14,7 @@ mixin PasswordValidatorMixin {
 
 mixin ConfirmPasswordValidatorMixin {
   String? validateConfirmPassword(String? confirmPassword, String? password) {
-    if (confirmPassword == null || confirmPassword.isEmpty) {
+    if (confirmPassword == null || confirmPassword.trim().isEmpty) {
       return ValidationMessages.confirmPasswordEmpty;
     }
     if (confirmPassword != password) {
