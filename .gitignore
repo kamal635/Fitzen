@@ -1,0 +1,34 @@
+# Build files
+/build/
+/android/build/
+/ios/Pods/
+/ios/Flutter/Flutter.framework
+/android/.cxx/
+/android/.gradle/
+/android/.idea/
+/android/app/*.iml
+
+# Kotlin compiler daemon files
+*.kotlin_module
+*.kotlin_metadata
+
+# CMake files
+**/CMakeCache.txt
+**/CMakeFiles/
+**/cmake_install.cmake
+**/Makefile
+**/build/
+
+# IDE files
+*.iml
+.idea/
+.vscode/
+*.log
+*.lock
+
+# Flutter generated files
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
