@@ -1,5 +1,9 @@
 import 'dart:io';
 
+import 'package:flutter/material.dart';
+import 'package:intl_phone_field/phone_number.dart';
+
+@immutable
 class TrainerFormState {
   final String firstName;
   final String? firstNameError;
@@ -11,18 +15,22 @@ class TrainerFormState {
   final String? passwordError;
   final String confirmPassword;
   final String? confirmPasswordError;
-  final String phoneNumber;
+  final PhoneNumber? phoneNumber;
   final String? phoneNumberError;
-
   final String years;
-  final String? errorYearsOfExperience;
+  final String? yearsOfExperienceError;
   final String rawSpecializationsInput;
   final List<String> specializations;
-  final String? errorSpecializations;
+  final String? specializationsError;
   final String certificationName;
-  final String? errorCertificationName;
+  final String? certificationNameError;
   final File? fileCertification;
-  final String? errorUploadCertification;
+  final String? uploadCertificationError;
+  final bool obscureTextPassword;
+  final bool obscureTextConfirmPassword;
+  final String? fileName;
+  final bool termsAgreement;
+  final String? termsAgreementError;
 
   const TrainerFormState({
     this.firstName = '',
@@ -35,17 +43,22 @@ class TrainerFormState {
     this.passwordError,
     this.confirmPassword = '',
     this.confirmPasswordError,
-    this.phoneNumber = '',
+    this.phoneNumber,
     this.phoneNumberError,
     this.years = '',
-    this.errorYearsOfExperience,
+    this.yearsOfExperienceError,
     this.rawSpecializationsInput = '',
     this.specializations = const [],
-    this.errorSpecializations,
+    this.specializationsError,
     this.certificationName = '',
-    this.errorCertificationName,
+    this.certificationNameError,
     this.fileCertification,
-    this.errorUploadCertification,
+    this.uploadCertificationError,
+    this.obscureTextPassword = true,
+    this.obscureTextConfirmPassword = true,
+    this.fileName,
+    this.termsAgreement = false,
+    this.termsAgreementError,
   });
 
   TrainerFormState copyWith({
@@ -59,44 +72,52 @@ class TrainerFormState {
     String? passwordError,
     String? confirmPassword,
     String? confirmPasswordError,
-    String? phoneNumber,
+    PhoneNumber? phoneNumber,
     String? phoneNumberError,
     String? years,
-    String? errorYearsOfExperience,
+    String? yearsOfExperienceError,
     String? rawSpecializationsInput,
     List<String>? specializations,
-    String? errorSpecializations,
+    String? specializationsError,
     String? certificationName,
-    String? errorCertificationName,
+    String? certificationNameError,
     File? fileCertification,
-    String? errorUploadCertification,
+    String? fileName,
+    String? uploadCertificationError,
+    bool? obscureTextPassword,
+    bool? obscureTextConfirmPassword,
+    bool? termsAgreement,
+    String? termsAgreementError,
   }) {
     return TrainerFormState(
       firstName: firstName ?? this.firstName,
-      firstNameError: firstNameError ?? this.firstNameError,
+      firstNameError: firstNameError,
       lastName: lastName ?? this.lastName,
-      lastNameError: lastNameError ?? this.lastNameError,
+      lastNameError: lastNameError,
       email: email ?? this.email,
-      emailError: emailError ?? this.emailError,
+      emailError: emailError,
       password: password ?? this.password,
-      passwordError: passwordError ?? this.passwordError,
+      passwordError: passwordError,
       confirmPassword: confirmPassword ?? this.confirmPassword,
-      confirmPasswordError: confirmPasswordError ?? this.confirmPasswordError,
+      confirmPasswordError: confirmPasswordError,
       phoneNumber: phoneNumber ?? this.phoneNumber,
-      phoneNumberError: phoneNumberError ?? this.phoneNumberError,
+      phoneNumberError: phoneNumberError,
       years: years ?? this.years,
-      errorYearsOfExperience:
-          errorYearsOfExperience ?? this.errorYearsOfExperience,
+      yearsOfExperienceError: yearsOfExperienceError,
       rawSpecializationsInput:
           rawSpecializationsInput ?? this.rawSpecializationsInput,
       specializations: specializations ?? this.specializations,
-      errorSpecializations: errorSpecializations ?? this.errorSpecializations,
+      specializationsError: specializationsError,
       certificationName: certificationName ?? this.certificationName,
-      errorCertificationName:
-          errorCertificationName ?? this.errorCertificationName,
+      certificationNameError: certificationNameError,
       fileCertification: fileCertification ?? this.fileCertification,
-      errorUploadCertification:
-          errorUploadCertification ?? this.errorUploadCertification,
+      fileName: fileName ?? this.fileName,
+      uploadCertificationError: uploadCertificationError,
+      obscureTextPassword: obscureTextPassword ?? this.obscureTextPassword,
+      obscureTextConfirmPassword:
+          obscureTextConfirmPassword ?? this.obscureTextConfirmPassword,
+      termsAgreement: termsAgreement ?? this.termsAgreement,
+      termsAgreementError: termsAgreementError,
     );
   }
 }

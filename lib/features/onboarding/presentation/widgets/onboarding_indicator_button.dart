@@ -1,4 +1,5 @@
 import 'package:fitzen/core/constant/app_colors.dart';
+import 'package:fitzen/core/constant/app_icons.dart';
 import 'package:fitzen/core/routing/router_name.dart';
 import 'package:fitzen/features/onboarding/data/models/onboarding_items.dart';
 import 'package:fitzen/features/onboarding/presentation/providers/onboarding_controller_provider.dart';
@@ -71,7 +72,7 @@ class OnBoardingIndicatorAndButtonSection extends ConsumerWidget {
             fillColor: AppColors.secondary,
             shape: const CircleBorder(),
             padding: EdgeInsets.all(20.r),
-            child: Icon(Icons.arrow_right_alt_sharp, size: 35.h),
+            child: Icon(AppIcons.arrow, size: 35.r),
           ),
           SizedBox(height: 40.h),
         ],

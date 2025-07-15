@@ -40,7 +40,7 @@ class ResetPasswordPageBody extends StatelessWidget {
                   titleField: AppStrings.newPassword,
                   hintText: AppStrings.enterNewPassword,
                   prefixIcon: AppIcons.lock,
-                  suffixIcon: AppIcons.visibilityOff,
+                  suffixIcon: AppIcons.eyeOff,
                 ),
 
                 //Confirm New Password
@@ -48,7 +48,7 @@ class ResetPasswordPageBody extends StatelessWidget {
                   titleField: AppStrings.confirmNewPassword,
                   hintText: AppStrings.enterConfirmNewPassword,
                   prefixIcon: AppIcons.lock,
-                  suffixIcon: AppIcons.visibilityOff,
+                  suffixIcon: AppIcons.eyeOff,
                 ),
 
                 SizedBox(height: 15.h),

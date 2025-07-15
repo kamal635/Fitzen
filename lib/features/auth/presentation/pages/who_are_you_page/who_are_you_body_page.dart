@@ -29,7 +29,7 @@ class WhoAreYouBodyPage extends StatelessWidget {
             WhoAreYouCard(
               title: AppStrings.trainer,
               subTitle: AppStrings.subtitleTrainer,
-              icon: AppIcons.dumble,
+              icon: AppIcons.dumbbell,
               onTap: () {
                 context.push(RouterName.trainerRegistration);
               },
@@ -41,7 +41,7 @@ class WhoAreYouBodyPage extends StatelessWidget {
             WhoAreYouCard(
               title: AppStrings.trainee,
               subTitle: AppStrings.subtitleTrainee,
-              icon: AppIcons.person,
+              icon: AppIcons.user,
               onTap: () {
                 context.push(RouterName.traineeRegistration);
               },

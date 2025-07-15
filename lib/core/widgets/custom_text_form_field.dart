@@ -19,11 +19,17 @@ class CustomTextFormField extends StatelessWidget {
     this.keyboardType,
     this.readOnly = false,
     this.widgetCenter,
+    this.onChanged,
+    this.errorText,
+    this.textInputAction,
+    this.onTapSuffixIcon,
+    this.initialValue,
   });
   final bool obscureText;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
   final String? hintText;
+  final String? errorText;
   final bool isSuffixIcon;
   final Widget? widgetSuffix;
   final Widget? widgetCenter;
@@ -31,6 +37,10 @@ class CustomTextFormField extends StatelessWidget {
   final TextInputType? keyboardType;
   final bool isNumberKeyboard;
   final bool readOnly;
+  final Function(String)? onChanged;
+  final Function()? onTapSuffixIcon;
+  final TextInputAction? textInputAction;
+  final String? initialValue;
 
   @override
   Widget build(BuildContext context) {
@@ -39,29 +49,37 @@ class CustomTextFormField extends StatelessWidget {
       obscureText: obscureText, //To hide the password
       keyboardType: keyboardType,
       readOnly: readOnly,
-
+      onChanged: onChanged,
+      textInputAction: textInputAction ?? TextInputAction.next,
       inputFormatters: [
         if (isNumberKeyboard)
           FilteringTextInputFormatter.digitsOnly, // only numbers
       ],
+      initialValue: initialValue,
+
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(vertical: 15.h),
+        contentPadding: EdgeInsets.symmetric(vertical: 14.h),
         filled: true,
         fillColor: AppColors.darkSlateGray,
         hintText: hintText,
         hintStyle: AppTextStyles.titleMedium.copyWith(color: AppColors.grey),
+        errorText: errorText,
+        errorStyle: AppTextStyles.labelSmall.copyWith(color: AppColors.red),
 
         prefixIcon: isCenter
             ? widgetCenter
             : Icon(
                 prefixIcon,
-                size: 24.r,
+                size: 20.r,
                 color: AppColors.grey,
               ), // show at the beginning of the textfield
         suffixIcon:
             widgetSuffix ??
             (isSuffixIcon && suffixIcon != null
-                ? Icon(suffixIcon, size: 24.r, color: AppColors.grey)
+                ? InkWell(
+                    onTap: onTapSuffixIcon,
+                    child: Icon(suffixIcon, size: 20.r, color: AppColors.grey),
+                  )
                 : null), //  show at the end of the textfield
         //=======================================================//
         //Default border style (used in general unless overridden below)
@@ -73,7 +91,7 @@ class CustomTextFormField extends StatelessWidget {
         // Border when the field is enabled but not focused
         enabledBorder: OutlineInputBorder(
           borderRadius: AppRadius.radiusCircularGeneral,
-          borderSide: const BorderSide(color: AppColors.darkGrey, width: 1),
+          borderSide: const BorderSide(color: AppColors.darkGrey, width: 0.5),
         ),
 
         // Border when the field is focused (user is typing)

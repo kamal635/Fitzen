@@ -29,12 +29,12 @@ class TraineeRegistrationBodyPage extends StatelessWidget {
                 const TextFieldAuth(
                   titleField: AppStrings.firstName,
                   hintText: AppStrings.enterFirstName,
-                  prefixIcon: AppIcons.person,
+                  prefixIcon: AppIcons.user,
                 ),
                 const TextFieldAuth(
                   titleField: AppStrings.lastName,
                   hintText: AppStrings.enteLastName,
-                  prefixIcon: AppIcons.person,
+                  prefixIcon: AppIcons.user,
                 ),
                 const TextFieldAuth(
                   titleField: AppStrings.email,
@@ -45,13 +45,13 @@ class TraineeRegistrationBodyPage extends StatelessWidget {
                   titleField: AppStrings.password,
                   hintText: AppStrings.createPassword,
                   prefixIcon: AppIcons.lock,
-                  suffixIcon: AppIcons.visibilityOff,
+                  suffixIcon: AppIcons.eyeOff,
                 ),
                 const TextFieldAuth(
                   titleField: AppStrings.confirmPassword,
                   hintText: AppStrings.confirmYourPassword,
                   prefixIcon: AppIcons.lock,
-                  suffixIcon: AppIcons.visibilityOff,
+                  suffixIcon: AppIcons.eyeOff,
                 ),
 
                 SizedBox(height: 35.h),

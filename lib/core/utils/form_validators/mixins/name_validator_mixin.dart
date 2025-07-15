@@ -12,7 +12,7 @@ mixin NameValidatorMixin {
         fieldName,
       );
     }
-    if (name.length < 2) {
+    if (name.trim().length < 2) {
       return ValidationMessages.nameTooShort.replaceAll(
         ValidationConstants.fieldName,
         fieldName,

@@ -1,15 +1,21 @@
 import 'package:fitzen/core/constant/validation_messages.dart';
+import 'package:intl_phone_field/countries.dart';
+import 'package:intl_phone_field/phone_number.dart';
 
 mixin PhoneNumberMixinValidator {
-  String? validatePhoneNumber(String? phone) {
-    if (phone == null || phone.trim().isEmpty) {
+  String? validatePhoneNumber(PhoneNumber? phoneNumber) {
+    if (phoneNumber == null || phoneNumber.number.trim().isEmpty) {
       return ValidationMessages.phoneEmpty;
     }
-    // Simple regex for phone validation
-    final phoneRegex = RegExp(ValidationConstants.phoneRegex);
-    if (!phoneRegex.hasMatch(phone)) {
+
+    final country = countries.firstWhere(
+      (c) => c.code == phoneNumber.countryISOCode,
+    );
+
+    if (phoneNumber.number.length != country.maxLength) {
       return ValidationMessages.invalidPhoneNumber;
     }
-    return null; // valid
+
+    return null;
   }
 }
