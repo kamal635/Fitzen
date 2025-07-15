@@ -24,6 +24,7 @@
         "intl_phone_field",
         "json_annotation",
         "lucide_icons",
+        "mocktail",
         "retry",
         "shared_preferences",
         "smooth_page_indicator"
@@ -170,6 +171,15 @@
       "name": "retry",
       "version": "3.1.2",
       "dependencies": []
+    },
+    {
+      "name": "mocktail",
+      "version": "1.0.4",
+      "dependencies": [
+        "collection",
+        "matcher",
+        "test_api"
+      ]
     },
     {
       "name": "lucide_icons",
