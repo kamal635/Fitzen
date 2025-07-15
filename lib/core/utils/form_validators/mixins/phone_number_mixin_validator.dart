@@ -16,6 +16,11 @@ mixin PhoneNumberMixinValidator {
       return ValidationMessages.invalidPhoneNumber;
     }
 
+    final isNumeric = RegExp(ValidationConstants.digitsRegex);
+    if (!isNumeric.hasMatch(phoneNumber.number)) {
+      return ValidationMessages.digits;
+    }
+
     return null;
   }
 }
