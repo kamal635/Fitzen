@@ -46,6 +46,7 @@ dependencies:
   intl_phone_field: ^3.2.0
   json_annotation: ^4.9.0
   lucide_icons: ^0.257.0
+  mocktail: ^1.0.4
   retry: ^3.1.2
   shared_preferences: ^2.5.3
   smooth_page_indicator: ^1.2.1
