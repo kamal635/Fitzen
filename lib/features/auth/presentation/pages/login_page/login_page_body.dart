@@ -48,7 +48,7 @@ class LoginPageBody extends StatelessWidget {
                   titleField: AppStrings.password,
                   hintText: AppStrings.createPassword,
                   prefixIcon: AppIcons.lock,
-                  suffixIcon: AppIcons.visibilityOff,
+                  suffixIcon: AppIcons.eyeOff,
                   spaceBetweenTextField: 0,
                 ),
 

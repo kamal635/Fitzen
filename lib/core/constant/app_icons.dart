@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons/lucide_icons.dart';
 
 abstract class AppIcons {
-  static const IconData person = Icons.person_outline;
-  static const IconData dumble = Icons.fitness_center;
-  static const IconData email = Icons.email_outlined;
-  static const IconData lock = Icons.lock_outlined;
-  static const IconData visibilityOff = Icons.visibility_off_outlined;
-  static const IconData visibility = Icons.visibility_outlined;
-  static const IconData phone = Icons.phone_outlined;
-  static const IconData yearsExperience = Icons.calendar_today_outlined;
-  static const IconData certificate = Icons.workspace_premium;
-  static const IconData document = Icons.description;
-  static const IconData check = Icons.check_circle_outline;
-  static const IconData resetPassword = Icons.lock_reset;
-  static const IconData lockOpen = Icons.lock_open;
+  static const IconData user = LucideIcons.user2;
+  static const IconData email = LucideIcons.mail;
+  static const IconData lock = LucideIcons.lock;
+  static const IconData eyeOff = LucideIcons.eyeOff;
+  static const IconData eye = LucideIcons.eye;
+  static const IconData phone = LucideIcons.phone;
+  static const IconData calendar = LucideIcons.calendar;
+  static const IconData dumbbell = LucideIcons.dumbbell;
+  static const IconData certificate = LucideIcons.award;
+  static const IconData file = LucideIcons.fileText;
+  static const IconData unlock = LucideIcons.unlock;
+  static const IconData resetPassword = LucideIcons.rotateCw;
+  static const IconData check = LucideIcons.checkCircle2;
+  static const IconData arrow = LucideIcons.arrowBigRightDash;
 }

@@ -80,4 +80,6 @@ abstract class AppStrings {
   static const step2Title = "Contact & Experience";
   static const step3Title = "Verification & Documents";
   static const step4Title = "Registration Complete";
+
+  static const extensionPDF = "pdf";
 }

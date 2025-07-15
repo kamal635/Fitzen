@@ -94,4 +94,13 @@ class TrainerValidator
     }
     return null; // valid
   }
+
+  // validator Terms Agreement
+  String? validateTermsAgreement(bool terms) {
+    if (!terms) {
+      return ValidationMessages.termsAgreement;
+    }
+
+    return null; // valid
+  }
 }

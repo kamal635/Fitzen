@@ -8,27 +8,43 @@ class TermsAgreementCheckbox extends StatelessWidget {
     super.key,
     required this.value,
     this.onChanged,
+    this.errorText,
   });
   final bool value;
+  final String? errorText;
   final Function(bool?)? onChanged;
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: Theme.of(context).copyWith(
-        splashColor: Colors.transparent,
-      ), //Disable the flashing that appears
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Theme(
+          data: Theme.of(context).copyWith(
+            splashColor: Colors.transparent,
+          ), //Disable the flashing that appears
 
-      child: CheckboxListTile(
-        contentPadding: EdgeInsets.zero,
-        activeColor: AppColors.secondary,
+          child: CheckboxListTile(
+            contentPadding: EdgeInsets.zero,
+            activeColor: AppColors.secondary,
 
-        title: Text(AppStrings.argreeTerms, style: AppTextStyles.titleLarge),
-        value: value,
-        onChanged: onChanged,
-        visualDensity:
-            VisualDensity.compact, //Reduces vertical and lateral space
-        controlAffinity: ListTileControlAffinity.leading,
-      ),
+            title: Text(
+              AppStrings.argreeTerms,
+              style: AppTextStyles.titleLarge,
+            ),
+            value: value,
+            onChanged: onChanged,
+            visualDensity:
+                VisualDensity.compact, //Reduces vertical and lateral space
+            controlAffinity: ListTileControlAffinity.leading,
+          ),
+        ),
+
+        Text(
+          errorText ?? "",
+          style: AppTextStyles.labelSmall.copyWith(color: AppColors.red),
+          overflow: TextOverflow.ellipsis,
+        ),
+      ],
     );
   }
 }

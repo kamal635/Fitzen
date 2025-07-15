@@ -3,7 +3,7 @@ import 'package:fitzen/features/auth/presentation/pages/forgot_password/forgot_p
 import 'package:fitzen/features/auth/presentation/pages/forgot_password/open_email_app_page/open_email_app.dart';
 import 'package:fitzen/features/auth/presentation/pages/forgot_password/reset_password_page/reset_password.dart';
 import 'package:fitzen/features/auth/presentation/pages/login_page/login_page.dart';
-import 'package:fitzen/features/auth/presentation/pages/trainee_registration_page/trainer_registration.dart';
+import 'package:fitzen/features/auth/presentation/pages/trainee_registration_page/trainee_registration.dart';
 import 'package:fitzen/features/auth/presentation/pages/trainer_registration_page/trainer_registration.dart';
 import 'package:fitzen/features/auth/presentation/pages/who_are_you_page/who_are_you_page.dart';
 import 'package:fitzen/features/onboarding/presentation/providers/onboarding_shared_prefs_provider.dart';

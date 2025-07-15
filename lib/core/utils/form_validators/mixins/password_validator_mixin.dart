@@ -13,11 +13,11 @@ mixin PasswordValidatorMixin {
 }
 
 mixin ConfirmPasswordValidatorMixin {
-  String? validateConfirmPassword(String? password, String? confirmPassword) {
+  String? validateConfirmPassword(String? confirmPassword, String? password) {
     if (confirmPassword == null || confirmPassword.isEmpty) {
       return ValidationMessages.confirmPasswordEmpty;
     }
-    if (password != confirmPassword) {
+    if (confirmPassword != password) {
       return ValidationMessages.passwordDoNotMatch;
     }
     return null;

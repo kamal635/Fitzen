@@ -19,6 +19,11 @@ class TextFieldAuth extends StatelessWidget {
     this.widget,
     this.keyboardType,
     this.spaceBetweenTextField,
+    this.onChanged,
+    this.errorText,
+    this.textInputAction,
+    this.onTapSuffixIcon,
+    this.initialValue,
   });
   final String titleField;
   final bool obscureText;
@@ -33,6 +38,11 @@ class TextFieldAuth extends StatelessWidget {
   final Widget? widgetCenter;
   final bool isCenter;
   final double? spaceBetweenTextField;
+  final Function(String)? onChanged;
+  final String? errorText;
+  final TextInputAction? textInputAction;
+  final Function()? onTapSuffixIcon;
+  final String? initialValue;
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +65,11 @@ class TextFieldAuth extends StatelessWidget {
           readOnly: readOnly,
           isCenter: isCenter,
           widgetCenter: widgetCenter,
+          onChanged: onChanged,
+          errorText: errorText,
+          textInputAction: textInputAction,
+          onTapSuffixIcon: onTapSuffixIcon,
+          initialValue: initialValue,
         ),
         SizedBox(height: spaceBetweenTextField ?? 20.h),
       ],

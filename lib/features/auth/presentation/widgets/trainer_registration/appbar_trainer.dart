@@ -13,7 +13,9 @@ class AppBarTrainer extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       // title
       title: const Text(AppStrings.trainerRegistrationTitle),
-      titleTextStyle: AppTextStyles.displayMedium,
+      titleTextStyle: AppTextStyles.displayMedium.copyWith(
+        color: AppColors.secondary,
+      ),
       centerTitle: true,
 
       // hide arrow back

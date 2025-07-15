@@ -39,6 +39,9 @@ abstract class ValidationMessages {
 
   static const String mustSelectCertificate =
       "Please select a certification file.";
+
+  static const String termsAgreement =
+      " You must agree to the terms and conditions to proceed.";
 }
 
 abstract class ValidationConstants {

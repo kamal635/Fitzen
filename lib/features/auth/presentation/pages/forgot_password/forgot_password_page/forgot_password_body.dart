@@ -31,7 +31,7 @@ class ForgotPasswordPageBody extends StatelessWidget {
                 // section Icon / title / subtitle
                 const IconWithTitleAndSubTitleWidget(
                   iconColor: AppColors.secondary,
-                  icon: AppIcons.lockOpen,
+                  icon: AppIcons.unlock,
                   title: AppStrings.forgotPasswordTitle,
                   subTitleitle: AppStrings.forgotPasswordSubTitle,
                 ),
