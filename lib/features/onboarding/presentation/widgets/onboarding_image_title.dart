@@ -1,0 +1,59 @@
+import 'package:fitzen/core/constant/app_fonts.dart';
+import 'package:fitzen/features/onboarding/data/models/onboarding_items.dart';
+import 'package:fitzen/features/onboarding/presentation/providers/onboarding_controller_provider.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class OnBoardingImageAndTitleSection extends ConsumerWidget {
+  const OnBoardingImageAndTitleSection({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final controller = ref.watch(onboardingPageControllerProvider);
+
+    return Expanded(
+      flex: 2,
+      child: PageView.builder(
+        controller: controller,
+        itemCount: listOnboarding.length,
+        itemBuilder: (context, i) {
+          final item = listOnboarding[i];
+          final imageWidth = 400.w;
+          final imageHeight = (imageWidth / (12 / 9)).h;
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              SizedBox(
+                height: imageHeight,
+                width: imageWidth,
+                child: Image.asset(item.image),
+              ),
+              Flexible(
+                child: Text(
+                  item.tilte,
+                  style: AppTextStyles.displayMedium,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 3,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+
+              SizedBox(height: 10.h),
+
+              Flexible(
+                child: Text(
+                  item.subTitle,
+                  style: AppTextStyles.bodyMedium,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 3,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}

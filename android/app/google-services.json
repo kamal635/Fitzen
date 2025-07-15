@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "455510303158",
+    "project_id": "fitzen-4e5b8",
+    "storage_bucket": "fitzen-4e5b8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:455510303158:android:b7f474d149fe6b63572117",
+        "android_client_info": {
+          "package_name": "com.example.fitzen"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAlHKQe7eFkXQo9W9z2vThmQurrFmMAAg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
