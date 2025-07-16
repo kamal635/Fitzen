@@ -15,8 +15,9 @@ class UploadDocumentWidget extends ConsumerWidget {
     final state = ref.watch(trainerFormProvider);
 
     return InkWell(
-      onTap: () {
-        ref.read(trainerFormProvider.notifier).uploadFile(ref);
+      onTap: () async {
+        final notifier = ref.read(trainerFormProvider.notifier);
+        await notifier.uploadFile();
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

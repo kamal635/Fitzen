@@ -1,7 +1,6 @@
 import 'dart:io';
 
-import 'package:file_picker/file_picker.dart';
-import 'package:fitzen/core/constant/app_strings.dart';
+import 'package:fitzen/core/services/file_picker_service.dart';
 import 'package:fitzen/core/utils/form_validators/trainer_validator.dart';
 import 'package:fitzen/core/utils/helpers/parse_specializations.dart';
 import 'package:fitzen/features/auth/presentation/providers/trainer_provider/trainer_form_validate/trainer_form_mixins.dart';
@@ -16,7 +15,9 @@ class TrainerFormNotifier extends StateNotifier<TrainerFormState>
         PasswordFormMixin,
         ConfirmPasswordFormMixin,
         PhoneNumberFormMixin {
-  TrainerFormNotifier() : super(const TrainerFormState());
+  final IFilePickerService filePickerService;
+
+  TrainerFormNotifier(this.filePickerService) : super(const TrainerFormState());
 
   // Validator instance to handle custom validation outside the mixins
   final _validator = TrainerValidator();
@@ -240,21 +241,13 @@ class TrainerFormNotifier extends StateNotifier<TrainerFormState>
   }
 
   // upload file PDF.
-  void uploadFile(WidgetRef ref) async {
-    final result = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: [AppStrings.extensionPDF],
-    );
+  Future<void> uploadFile() async {
+    final result = await filePickerService.pickPdf();
     if (result != null && result.files.single.path != null) {
-      // get file name to store
       final fileName = result.files.first.name;
-
-      // get file to store
       final file = File(result.files.single.path!);
 
-      ref
-          .read(trainerFormProvider.notifier)
-          .updateCertificationFile(file, fileName);
+      updateCertificationFile(file, fileName);
     }
   }
 
@@ -299,5 +292,5 @@ class TrainerFormNotifier extends StateNotifier<TrainerFormState>
 // Provider to make this StateNotifier available in the app
 final trainerFormProvider =
     StateNotifierProvider<TrainerFormNotifier, TrainerFormState>(
-      (ref) => TrainerFormNotifier(),
+      (ref) => TrainerFormNotifier(FilePickerService()),
     );
