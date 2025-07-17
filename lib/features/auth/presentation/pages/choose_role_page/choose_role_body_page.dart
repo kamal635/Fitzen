@@ -9,8 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class WhoAreYouBodyPage extends StatelessWidget {
-  const WhoAreYouBodyPage({super.key});
+/// UI body for the Choose Role screen.
+class ChooseRoleBodyPage extends StatelessWidget {
+  /// Creates a [ChooseRoleBodyPage] widget.
+  const ChooseRoleBodyPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +20,8 @@ class WhoAreYouBodyPage extends StatelessWidget {
       padding: AppPaddings.horizontalGeneralPage,
       child: Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             const WhoAreYouPageTitle(title: AppStrings.titleWhoAreYou),
 
             SizedBox(height: 30.h),

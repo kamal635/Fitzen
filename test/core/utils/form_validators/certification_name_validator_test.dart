@@ -9,23 +9,23 @@ void main() {
     validator = TrainerValidator();
   });
 
-  group("validateCertificationName", () {
-    test("should return error if name is null or empty", () {
+  group('validateCertificationName', () {
+    test('should return error if name is null or empty', () {
       expect(validator.validateCertificationName(null), isNotNull);
-      expect(validator.validateCertificationName(""), isNotNull);
+      expect(validator.validateCertificationName(''), isNotNull);
     });
 
-    test("should return error if name is too short", () {
-      expect(validator.validateCertificationName("A"), isNotNull);
+    test('should return error if name is too short', () {
+      expect(validator.validateCertificationName('A'), isNotNull);
     });
 
-    test("should return error if name is too long", () {
-      expect(validator.validateCertificationName("A" * 100), isNotNull);
+    test('should return error if name is too long', () {
+      expect(validator.validateCertificationName('A' * 100), isNotNull);
     });
 
-    test("should return null if certification name is valid", () {
+    test('should return null if certification name is valid', () {
       expect(
-        validator.validateCertificationName("Personal Trainer Cert"),
+        validator.validateCertificationName('Personal Trainer Cert'),
         isNull,
       );
     });

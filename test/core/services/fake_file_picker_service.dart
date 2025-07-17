@@ -4,7 +4,7 @@ import 'package:fitzen/core/services/file_picker_service.dart';
 class FakeFilePickerService implements IFilePickerService {
   @override
   Future<FilePickerResult?> pickPdf() async {
-    return FilePickerResult([
+    return FilePickerResult(<PlatformFile>[
       PlatformFile(name: 'test.pdf', path: '/fake/path/test.pdf', size: 12345),
     ]);
   }

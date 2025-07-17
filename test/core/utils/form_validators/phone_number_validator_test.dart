@@ -16,11 +16,11 @@ void main() {
     );
   });
 
-  group("validatePhoneNumber", () {
-    test("should return error if phone number is null or empty", () {
+  group('validatePhoneNumber', () {
+    test('should return error if phone number is null or empty', () {
       expect(validator.validatePhoneNumber(null), isNotNull);
 
-      final emptyNumber = PhoneNumber(
+      final PhoneNumber emptyNumber = PhoneNumber(
         countryISOCode: 'US',
         countryCode: '+1',
         number: ' ',
@@ -28,8 +28,8 @@ void main() {
       expect(validator.validatePhoneNumber(emptyNumber), isNotNull);
     });
 
-    test("should return error if phone number is invalid", () {
-      final invalidNumber = PhoneNumber(
+    test('should return error if phone number is invalid', () {
+      final PhoneNumber invalidNumber = PhoneNumber(
         countryISOCode: 'US',
         countryCode: '+1',
         number: '123',
@@ -37,7 +37,7 @@ void main() {
       expect(validator.validatePhoneNumber(invalidNumber), isNotNull);
     });
 
-    test("should return null if phone number is valid", () {
+    test('should return null if phone number is valid', () {
       expect(validator.validatePhoneNumber(validPhoneNumber), isNull);
     });
   });

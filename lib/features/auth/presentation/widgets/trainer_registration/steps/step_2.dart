@@ -10,10 +10,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/// Second step of the trainer registration process.
 class TrainerRegistrationStepTwo extends ConsumerWidget {
+  ///
+  /// create [TrainerRegistrationStepTwo]
   const TrainerRegistrationStepTwo({super.key, this.onNext, this.onBack});
-  final Function()? onNext;
-  final Function()? onBack;
+
+  /// [onNext] is triggered when proceeding to the next step.
+  final VoidCallback? onNext;
+
+  /// [onBack] is triggered when returning to the previous step.
+  final VoidCallback? onBack;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(trainerFormProvider);
@@ -41,7 +48,7 @@ class TrainerRegistrationStepTwo extends ConsumerWidget {
                         : 0,
                     titleField: AppStrings.phoneNumber,
 
-                    initialValue: state.phoneNumber?.number ?? "",
+                    initialValue: state.phoneNumber?.number ?? '',
                     errorText: state.phoneNumberError,
                     onChanged: (phone) {
                       ref
@@ -93,8 +100,8 @@ class TrainerRegistrationStepTwo extends ConsumerWidget {
           CustomNextBackButtons(
             onBack: onBack,
             onNext: () {
-              final notifier = ref.read(trainerFormProvider.notifier);
-              notifier.validateStepTwoFields();
+              final notifier = ref.read(trainerFormProvider.notifier)
+                ..validateStepTwoFields();
 
               final state = ref.read(trainerFormProvider);
               final isValid = notifier.isValidStepTwo(state);

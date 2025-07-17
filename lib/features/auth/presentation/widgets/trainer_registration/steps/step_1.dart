@@ -12,10 +12,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+/// First step of the trainer registration process.
 class TrainerRegistrationStepOne extends ConsumerWidget {
+  ///
+  /// create [TrainerRegistrationStepOne]
   const TrainerRegistrationStepOne({super.key, this.onNext});
-  final Function()? onNext;
 
+  /// [onNext] is triggered when the user wants to proceed to the next step.
+  final VoidCallback? onNext;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(trainerFormProvider);
@@ -27,7 +31,6 @@ class TrainerRegistrationStepOne extends ConsumerWidget {
           Expanded(
             child: SingleChildScrollView(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   SizedBox(height: 35.h),
@@ -159,15 +162,15 @@ class TrainerRegistrationStepOne extends ConsumerWidget {
     );
   }
 
+  /// validate step one when user tapped to next step
   void validateStepOneAndGoNext(WidgetRef ref) {
     // 1 Get the notifier to call validation and access logic
-    final notifier = ref.read(trainerFormProvider.notifier);
-
-    // 2 Trigger validation: this updates the state immediately
-    notifier.validateStepOneFields();
+    final notifier = ref.read(trainerFormProvider.notifier)
+      // 2 Trigger validation: this updates the state immediately
+      ..validateStepOneFields();
 
     //  IMPORTANT:
-    // ref.watch(trainerFormProvider) won't give the new updated state here immediately,
+    // ref.watch(trainerFormProvider) won't give the new updated state here,
     // because rebuild happens in the *next frame* after state change.
     //
     // ref.read always reads the *latest* value at this exact moment.

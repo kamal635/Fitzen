@@ -12,7 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+/// UI body for the Login page.
 class LoginPageBody extends StatelessWidget {
+  /// Creates a [LoginPageBody] widget.
   const LoginPageBody({super.key});
 
   @override
@@ -26,9 +28,8 @@ class LoginPageBody extends StatelessWidget {
           ),
           child: IntrinsicHeight(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
+              children: <Widget>[
                 // app logo
                 SizedBox(
                   height: 360.h,

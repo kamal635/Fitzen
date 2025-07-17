@@ -16,13 +16,13 @@ class TrainerRegistrationStepFour extends StatelessWidget {
       padding: AppPaddings.horizontalGeneralPage,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
-        children: [
+        children: <Widget>[
           // section Icon / title / subtitle
           const IconWithTitleAndSubTitleWidget(
             iconColor: AppColors.green,
             icon: AppIcons.check,
             title: AppStrings.step4Title,
-            subTitleitle: AppStrings.underReview,
+            subTitle: AppStrings.underReview,
           ),
 
           SizedBox(height: 48.h),

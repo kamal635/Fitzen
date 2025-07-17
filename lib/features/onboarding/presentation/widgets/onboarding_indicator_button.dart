@@ -60,7 +60,7 @@ class OnBoardingIndicatorAndButtonSection extends ConsumerWidget {
 
                 // Navigate to SignUp screen if the widget is still mounted
                 if (context.mounted) {
-                  context.go(RouterName.whoAreYou);
+                  context.go(RouterName.chooseRole);
                 }
               } else {
                 controller.nextPage(

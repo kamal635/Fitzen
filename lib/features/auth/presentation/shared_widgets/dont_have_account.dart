@@ -4,15 +4,20 @@ import 'package:fitzen/core/constant/app_strings.dart';
 import 'package:fitzen/core/widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
 
+///  DoNotHaveAccount widget to show if the user doesn't have an account
 class DoNotHaveAccount extends StatelessWidget {
-  const DoNotHaveAccount({super.key, required this.onPressed});
+  /// Creates a [DoNotHaveAccount]
+  ///
+  ///with requires [onPressed]
+  const DoNotHaveAccount({required this.onPressed, super.key});
 
-  final Function()? onPressed;
+  /// A callback that is called when the user tapped.
+  final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
+      children: <Widget>[
         Flexible(
           child: Text(
             overflow: TextOverflow.ellipsis,

@@ -11,7 +11,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+/// UI body for the Forgot Password page.
 class ForgotPasswordPageBody extends StatelessWidget {
+  /// Creates a [ForgotPasswordPageBody] widget.
   const ForgotPasswordPageBody({super.key});
 
   @override
@@ -27,13 +29,13 @@ class ForgotPasswordPageBody extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
+              children: <Widget>[
                 // section Icon / title / subtitle
                 const IconWithTitleAndSubTitleWidget(
                   iconColor: AppColors.secondary,
                   icon: AppIcons.unlock,
                   title: AppStrings.forgotPasswordTitle,
-                  subTitleitle: AppStrings.forgotPasswordSubTitle,
+                  subTitle: AppStrings.forgotPasswordSubTitle,
                 ),
 
                 SizedBox(height: 50.h),

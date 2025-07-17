@@ -5,7 +5,9 @@ import 'package:fitzen/features/auth/presentation/widgets/trainer_registration/s
 import 'package:fitzen/features/auth/presentation/widgets/trainer_registration/steps/step_4.dart';
 import 'package:flutter/material.dart';
 
+/// Stateful widget for the Trainer Registration screen.
 class TrainerRegistrationPage extends StatefulWidget {
+  /// Creates a [TrainerRegistrationPage].
   const TrainerRegistrationPage({super.key});
 
   @override
@@ -54,12 +56,12 @@ class _TrainerRegistrationPageState extends State<TrainerRegistrationPage> {
       body: PageView(
         controller: _pageController,
         physics: const NeverScrollableScrollPhysics(),
-        onPageChanged: (index) {
+        onPageChanged: (int index) {
           setState(() {
             _currentStep = index;
           });
         },
-        children: [
+        children: <Widget>[
           TrainerRegistrationStepOne(onNext: nextStep),
           TrainerRegistrationStepTwo(onNext: nextStep, onBack: previousStep),
           TrainerRegistrationStepThree(onNext: nextStep, onBack: previousStep),

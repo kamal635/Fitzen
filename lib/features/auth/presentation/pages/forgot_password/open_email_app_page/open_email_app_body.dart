@@ -10,7 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+/// UI body for the Open Email App page.
 class OpenEmailAppPageBody extends StatelessWidget {
+  /// Creates an [OpenEmailAppPageBody] widget.
   const OpenEmailAppPageBody({super.key});
 
   @override
@@ -26,13 +28,13 @@ class OpenEmailAppPageBody extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
+              children: <Widget>[
                 // section Icon / title / subtitle
                 const IconWithTitleAndSubTitleWidget(
                   iconColor: AppColors.secondary,
                   icon: AppIcons.email,
                   title: AppStrings.openEmailTitle,
-                  subTitleitle: AppStrings.openEmailSubTitle,
+                  subTitle: AppStrings.openEmailSubTitle,
                 ),
 
                 SizedBox(height: 50.h),

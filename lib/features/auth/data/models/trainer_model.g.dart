@@ -36,7 +36,7 @@ Map<String, dynamic> _$TrainerModelToJson(_TrainerModel instance) =>
       'uploadCertificationUrl': instance.uploadCertificationUrl,
     };
 
-const _$ApprovalStatusEnumMap = {
+const Map<ApprovalStatus, String> _$ApprovalStatusEnumMap = {
   ApprovalStatus.pending: 'pending',
   ApprovalStatus.approved: 'approved',
   ApprovalStatus.rejected: 'rejected',

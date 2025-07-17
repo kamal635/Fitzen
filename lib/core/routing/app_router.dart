@@ -1,69 +1,83 @@
 import 'package:fitzen/core/routing/router_name.dart';
+import 'package:fitzen/features/auth/presentation/pages/choose_role_page/choose_role_page.dart';
 import 'package:fitzen/features/auth/presentation/pages/forgot_password/forgot_password_page/forgot_password.dart';
 import 'package:fitzen/features/auth/presentation/pages/forgot_password/open_email_app_page/open_email_app.dart';
 import 'package:fitzen/features/auth/presentation/pages/forgot_password/reset_password_page/reset_password.dart';
 import 'package:fitzen/features/auth/presentation/pages/login_page/login_page.dart';
 import 'package:fitzen/features/auth/presentation/pages/trainee_registration_page/trainee_registration.dart';
 import 'package:fitzen/features/auth/presentation/pages/trainer_registration_page/trainer_registration.dart';
-import 'package:fitzen/features/auth/presentation/pages/who_are_you_page/who_are_you_page.dart';
-import 'package:fitzen/features/onboarding/presentation/providers/onboarding_shared_prefs_provider.dart';
-import 'package:go_router/go_router.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fitzen/features/onboarding/presentation/pages/onboarding_page.dart';
+import 'package:fitzen/features/onboarding/presentation/providers/onboarding_shared_prefs_provider.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
-final appRouterProvider = Provider<GoRouter>((ref) {
-  final isOnboardingDoneAsync = ref.watch(isOnboardingDoneFutureProvider);
+/// Provides the app's routing configuration.
+final Provider<GoRouter> appRouterProvider = Provider<GoRouter>((
+  Ref<GoRouter> ref,
+) {
+  final AsyncValue<bool> isOnboardingDoneAsync = ref.watch(
+    isOnboardingDoneFutureProvider,
+  );
 
   return GoRouter(
     initialLocation: RouterName.onboardingPage,
-    routes: [
+    routes: <RouteBase>[
       GoRoute(
         path: RouterName.onboardingPage,
-        builder: (context, state) => const OnBoardingPage(),
+        builder: (BuildContext context, GoRouterState state) =>
+            const OnBoardingPage(),
       ),
 
       GoRoute(
-        path: RouterName.whoAreYou,
-        builder: (context, state) => const WhoAreYouPage(),
+        path: RouterName.chooseRole,
+        builder: (BuildContext context, GoRouterState state) =>
+            const ChooseRolePage(),
       ),
 
       GoRoute(
         path: RouterName.trainerRegistration,
-        builder: (context, state) => const TrainerRegistrationPage(),
+        builder: (BuildContext context, GoRouterState state) =>
+            const TrainerRegistrationPage(),
       ),
 
       GoRoute(
         path: RouterName.traineeRegistration,
-        builder: (context, state) => const TraineeRegistrationPage(),
+        builder: (BuildContext context, GoRouterState state) =>
+            const TraineeRegistrationPage(),
       ),
 
       GoRoute(
         path: RouterName.login,
-        builder: (context, state) => const LoginPage(),
+        builder: (BuildContext context, GoRouterState state) =>
+            const LoginPage(),
       ),
 
       GoRoute(
         path: RouterName.forgotPassword,
-        builder: (context, state) => const ForgotPasswordPage(),
+        builder: (BuildContext context, GoRouterState state) =>
+            const ForgotPasswordPage(),
       ),
 
       GoRoute(
         path: RouterName.openEmail,
-        builder: (context, state) => const OpenEmailAppPage(),
+        builder: (BuildContext context, GoRouterState state) =>
+            const OpenEmailAppPage(),
       ),
 
       GoRoute(
         path: RouterName.resetPassword,
-        builder: (context, state) => const ResetPasswordPage(),
+        builder: (BuildContext context, GoRouterState state) =>
+            const ResetPasswordPage(),
       ),
     ],
-    redirect: (context, state) {
+    redirect: (BuildContext context, GoRouterState state) {
       return isOnboardingDoneAsync.when(
-        data: (done) {
+        data: (bool done) {
           if (done) {
             // If onboarding is done → go to /home
             if (state.fullPath == RouterName.onboardingPage) {
-              return RouterName.whoAreYou;
+              return RouterName.chooseRole;
             }
           } else {
             // If not onboarding → we stay on "/"
@@ -74,7 +88,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           return null;
         },
         loading: () => null,
-        error: (_, __) => null,
+        error: (_, _) => null,
       );
     },
   );

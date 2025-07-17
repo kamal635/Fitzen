@@ -2,6 +2,7 @@ import 'package:fitzen/core/constant/validation_messages.dart';
 
 /// Mixin for validating name fields (first name / last name).
 mixin NameValidatorMixin {
+  /// Validates name format; returns error message if invalid, else null.
   String? validateName(
     String? name, {
     String fieldName = ValidationConstants.name,
@@ -19,7 +20,7 @@ mixin NameValidatorMixin {
       );
     }
 
-    final containsLettersRegex = RegExp(
+    final RegExp containsLettersRegex = RegExp(
       ValidationConstants.containsLettersRegex,
     );
     if (!containsLettersRegex.hasMatch(name)) {
