@@ -1,10 +1,12 @@
 abstract class AppAssets {
   //======================== OnBoarding ==================================
   static const String buildStrength =
-      "assets/images/onboarding/build_strength.png";
-  static const String healthyFood = "assets/images/onboarding/healthy_food.png";
+      "assets/images/onboarding_image/build_strength.png";
+  static const String healthyFood =
+      "assets/images/onboarding_image/healthy_food.png";
   static const String startFitness =
-      "assets/images/onboarding/start_fitness.png";
+      "assets/images/onboarding_image/start_fitness.png";
+
   static const String logo = "assets/images/logo/splash_logo.jpg";
 
   //======================== Auth ==================================
