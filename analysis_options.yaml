@@ -1,67 +1,31 @@
-# This file is using Very Good Analysis rules as base
+# 📐 Base linting rules from Very Good Analysis
 include: package:very_good_analysis/analysis_options.yaml
-
 
 linter:
   rules:
-
-    ### 🔒 Security and clarity improvements
-    # Always specify types explicitly instead of using var
+    # 🔒 Security & clarity
     always_specify_types: true
-
-    # Avoid using print statements, use proper logging instead
     avoid_print: true
-
-    # Require documentation for all public classes and members
     public_member_api_docs: true
-
-    # Prefer final fields when a variable is not reassigned
     prefer_final_fields: true
 
-    ### 🧼 Code quality enhancements
-    # Avoid unnecessary containers in widgets
+    # 🧼 Code quality
     avoid_unnecessary_containers: true
-
-    # Use const constructors when possible for better performance
     prefer_const_constructors: true
-
-    # Use const for lists/maps/etc. if they don’t change
     prefer_const_literals_to_create_immutables: true
-
-    # Avoid using unnecessary null checks or redundant code
     unnecessary_null_checks: true
-
-    # Avoid returning null from functions that return non-nullable types
     avoid_returning_null_for_void: true
-
-    ### 🧪 Testing and mock safety
-    # Avoid empty test bodies or test descriptions
-    empty_statements: true
-
-    # Avoid using ‘new’ keyword (legacy)
     unnecessary_new: true
 
-    ### 🎨 Style and readability
-    # Prefer single quotes for strings unless using interpolation
+    # 🧪 Testing & maintenance
+    empty_statements: true
+
+    # 🎨 Style & readability
     prefer_single_quotes: true
-
-    # Place constructors before other members in a class
     sort_constructors_first: true
-
-    # Avoid overly long method chains on single lines
     cascade_invocations: true
 
-    ### 🧭 Naming and structure
-    # Use lowerCamelCase for method and variable names
-    non_constant_identifier_names: false
-
-    # Use UpperCamelCase for class names
-    always_use_package_imports: true
-
-    # Avoid relative imports like `../`
-    prefer_relative_imports: false
-
-    # Disable rule that suggests removing local variable types,
-    # because we enforce explicit types with `always_specify_types`.
+    # 🧭 Naming & structure
+    always_use_package_imports: true  
+    prefer_relative_imports: false    
     omit_local_variable_types: false
-
