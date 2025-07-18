@@ -15,7 +15,7 @@ _TrainerModel _$TrainerModelFromJson(Map<String, dynamic> json) =>
       phoneNumber: json['phoneNumber'] as String,
       yearsOfExperience: (json['yearsOfExperience'] as num).toInt(),
       specializations: (json['specializations'] as List<dynamic>)
-          .map((e) => e as String)
+          .map((dynamic e) => e as String)
           .toList(),
       certificationName: json['certificationName'] as String,
       isApproved: $enumDecode(_$ApprovalStatusEnumMap, json['isApproved']),
@@ -32,12 +32,13 @@ Map<String, dynamic> _$TrainerModelToJson(_TrainerModel instance) =>
       'yearsOfExperience': instance.yearsOfExperience,
       'specializations': instance.specializations,
       'certificationName': instance.certificationName,
-      'isApproved': _$ApprovalStatusEnumMap[instance.isApproved]!,
+      'isApproved': _$ApprovalStatusEnumMap[instance.isApproved],
       'uploadCertificationUrl': instance.uploadCertificationUrl,
     };
 
-const _$ApprovalStatusEnumMap = {
-  ApprovalStatus.pending: 'pending',
-  ApprovalStatus.approved: 'approved',
-  ApprovalStatus.rejected: 'rejected',
-};
+const Map<ApprovalStatus, String> _$ApprovalStatusEnumMap =
+    <ApprovalStatus, String>{
+      ApprovalStatus.pending: 'pending',
+      ApprovalStatus.approved: 'approved',
+      ApprovalStatus.rejected: 'rejected',
+    };

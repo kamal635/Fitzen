@@ -7,7 +7,9 @@ import 'package:fitzen/features/auth/presentation/shared_widgets/text_field_auth
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/// UI body for the Trainee Registration page.
 class TraineeRegistrationBodyPage extends StatelessWidget {
+  /// Creates a [TraineeRegistrationBodyPage] widget.
   const TraineeRegistrationBodyPage({super.key});
 
   @override
@@ -21,9 +23,8 @@ class TraineeRegistrationBodyPage extends StatelessWidget {
           ),
           child: IntrinsicHeight(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
+              children: <Widget>[
                 SizedBox(height: 35.h),
 
                 const TextFieldAuth(

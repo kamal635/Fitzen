@@ -4,6 +4,7 @@ import 'package:fitzen/core/constant/app_strings.dart';
 import 'package:fitzen/core/routing/router_name.dart';
 import 'package:fitzen/core/widgets/custom_button.dart';
 import 'package:fitzen/features/auth/presentation/providers/trainer_provider/trainer_form_validate/trainer_form_notifier.dart';
+import 'package:fitzen/features/auth/presentation/providers/trainer_provider/trainer_form_validate/trainer_form_state.dart';
 import 'package:fitzen/features/auth/presentation/shared_widgets/already_have_account.dart';
 import 'package:fitzen/features/auth/presentation/shared_widgets/text_field_auth.dart';
 import 'package:fitzen/features/auth/presentation/widgets/trainer_registration/step_registration_title.dart';
@@ -12,24 +13,27 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+/// First step of the trainer registration process.
 class TrainerRegistrationStepOne extends ConsumerWidget {
+  ///
+  /// create [TrainerRegistrationStepOne]
   const TrainerRegistrationStepOne({super.key, this.onNext});
-  final Function()? onNext;
 
+  /// [onNext] is triggered when the user wants to proceed to the next step.
+  final VoidCallback? onNext;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(trainerFormProvider);
+    final TrainerFormState state = ref.watch(trainerFormProvider);
 
     return Padding(
       padding: AppPaddings.horizontalGeneralPage,
       child: Column(
-        children: [
+        children: <Widget>[
           Expanded(
             child: SingleChildScrollView(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
+                children: <Widget>[
                   SizedBox(height: 35.h),
 
                   // title Step One
@@ -45,7 +49,7 @@ class TrainerRegistrationStepOne extends ConsumerWidget {
 
                     initialValue: state.firstName,
                     errorText: state.firstNameError,
-                    onChanged: (value) {
+                    onChanged: (String value) {
                       ref
                           .read(trainerFormProvider.notifier)
                           .updateFirstName(value);
@@ -60,7 +64,7 @@ class TrainerRegistrationStepOne extends ConsumerWidget {
 
                     initialValue: state.lastName,
                     errorText: state.lastNameError,
-                    onChanged: (value) {
+                    onChanged: (String value) {
                       ref
                           .read(trainerFormProvider.notifier)
                           .updateLastName(value);
@@ -75,7 +79,7 @@ class TrainerRegistrationStepOne extends ConsumerWidget {
 
                     initialValue: state.email,
                     errorText: state.emailError,
-                    onChanged: (value) {
+                    onChanged: (String value) {
                       ref.read(trainerFormProvider.notifier).updateEmail(value);
                     },
                   ),
@@ -98,7 +102,7 @@ class TrainerRegistrationStepOne extends ConsumerWidget {
                     },
                     errorText: state.passwordError,
 
-                    onChanged: (value) {
+                    onChanged: (String value) {
                       ref
                           .read(trainerFormProvider.notifier)
                           .updatePassword(value);
@@ -124,7 +128,7 @@ class TrainerRegistrationStepOne extends ConsumerWidget {
                     errorText: state.confirmPasswordError,
 
                     textInputAction: TextInputAction.done,
-                    onChanged: (value) {
+                    onChanged: (String value) {
                       ref
                           .read(trainerFormProvider.notifier)
                           .updateConfirmPassword(value);
@@ -159,24 +163,24 @@ class TrainerRegistrationStepOne extends ConsumerWidget {
     );
   }
 
+  /// validate step one when user tapped to next step
   void validateStepOneAndGoNext(WidgetRef ref) {
     // 1 Get the notifier to call validation and access logic
-    final notifier = ref.read(trainerFormProvider.notifier);
-
-    // 2 Trigger validation: this updates the state immediately
-    notifier.validateStepOneFields();
+    final TrainerFormNotifier notifier = ref.read(trainerFormProvider.notifier)
+      // 2 Trigger validation: this updates the state immediately
+      ..validateStepOneFields();
 
     //  IMPORTANT:
-    // ref.watch(trainerFormProvider) won't give the new updated state here immediately,
+    // ref.watch(trainerFormProvider) won't give the new updated state here,
     // because rebuild happens in the *next frame* after state change.
     //
     // ref.read always reads the *latest* value at this exact moment.
     //
     // So, to get the updated errors, we read the state again:
-    final state = ref.read(trainerFormProvider);
+    final TrainerFormState state = ref.read(trainerFormProvider);
 
     // 3 Check validity using the freshly updated state
-    final isValid = notifier.isValidStepOne(state);
+    final bool isValid = notifier.isValidStepOne(state);
 
     // 4 If all fields are valid, move to the next step
     if (isValid) {

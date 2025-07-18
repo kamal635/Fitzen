@@ -2,7 +2,9 @@ import 'package:fitzen/features/auth/presentation/pages/trainee_registration_pag
 import 'package:fitzen/features/auth/presentation/widgets/trainee_registration/appbar_trainee.dart';
 import 'package:flutter/material.dart';
 
+/// Entry widget for the Trainee Registration screen.
 class TraineeRegistrationPage extends StatelessWidget {
+  /// Creates a [TraineeRegistrationPage].
   const TraineeRegistrationPage({super.key});
 
   @override

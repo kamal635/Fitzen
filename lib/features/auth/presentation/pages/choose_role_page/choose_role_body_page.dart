@@ -3,14 +3,16 @@ import 'package:fitzen/core/constant/app_paddings.dart';
 import 'package:fitzen/core/constant/app_strings.dart';
 import 'package:fitzen/core/routing/router_name.dart';
 import 'package:fitzen/features/auth/presentation/shared_widgets/already_have_account.dart';
-import 'package:fitzen/features/auth/presentation/widgets/who_are_you/card_who_are_you.dart';
-import 'package:fitzen/features/auth/presentation/widgets/who_are_you/title_page.dart';
+import 'package:fitzen/features/auth/presentation/widgets/choose_role/choose_role_card.dart';
+import 'package:fitzen/features/auth/presentation/widgets/choose_role/title_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class WhoAreYouBodyPage extends StatelessWidget {
-  const WhoAreYouBodyPage({super.key});
+/// UI body for the Choose Role screen.
+class ChooseRoleBodyPage extends StatelessWidget {
+  /// Creates a [ChooseRoleBodyPage] widget.
+  const ChooseRoleBodyPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +20,14 @@ class WhoAreYouBodyPage extends StatelessWidget {
       padding: AppPaddings.horizontalGeneralPage,
       child: Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const WhoAreYouPageTitle(title: AppStrings.titleWhoAreYou),
+          children: <Widget>[
+            const ChooseRolePageTitle(title: AppStrings.titleWhoAreYou),
 
             SizedBox(height: 30.h),
 
             // trainer
-            WhoAreYouCard(
+            ChooseRoleCard(
               title: AppStrings.trainer,
               subTitle: AppStrings.subtitleTrainer,
               icon: AppIcons.dumbbell,
@@ -38,7 +39,7 @@ class WhoAreYouBodyPage extends StatelessWidget {
             SizedBox(height: 20.h),
 
             // trainee
-            WhoAreYouCard(
+            ChooseRoleCard(
               title: AppStrings.trainee,
               subTitle: AppStrings.subtitleTrainee,
               icon: AppIcons.user,

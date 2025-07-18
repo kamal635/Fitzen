@@ -3,25 +3,31 @@ import 'package:fitzen/core/constant/app_colors.dart';
 import 'package:fitzen/core/constant/app_fonts.dart';
 import 'package:fitzen/core/constant/app_strings.dart';
 import 'package:fitzen/features/auth/presentation/providers/trainer_provider/trainer_form_validate/trainer_form_notifier.dart';
+import 'package:fitzen/features/auth/presentation/providers/trainer_provider/trainer_form_validate/trainer_form_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/// A widget for uploading documents, used within forms.
+/// Uses Riverpod's [ConsumerWidget] to access providers.
 class UploadDocumentWidget extends ConsumerWidget {
+  /// Creates [UploadDocumentWidget].
   const UploadDocumentWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(trainerFormProvider);
+    final TrainerFormState state = ref.watch(trainerFormProvider);
 
     return InkWell(
       onTap: () async {
-        final notifier = ref.read(trainerFormProvider.notifier);
+        final TrainerFormNotifier notifier = ref.read(
+          trainerFormProvider.notifier,
+        );
         await notifier.uploadFile();
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: <Widget>[
           Flexible(
             child: Image.asset(
               height: 30.r,

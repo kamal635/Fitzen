@@ -5,7 +5,10 @@ part 'trainer_model.freezed.dart';
 part 'trainer_model.g.dart';
 
 @freezed
+/// Immutable data model for a Trainer, generated with Freezed.
 abstract class TrainerModel with _$TrainerModel {
+  /// Factory constructor to create a TrainerModel instance.
+  /// with freezed.
   const factory TrainerModel({
     required String uid,
     required String firstName,
@@ -19,11 +22,14 @@ abstract class TrainerModel with _$TrainerModel {
     String? uploadCertificationUrl,
   }) = _TrainerModel;
 
+  /// Creates a TrainerModel instance from a JSON map.
   factory TrainerModel.fromJson(Map<String, dynamic> json) =>
       _$TrainerModelFromJson(json);
 }
 
+/// Extension to convert between TrainerModel and TrainerEntity.
 extension TrainerModelX on TrainerModel {
+  /// Converts TrainerModel to TrainerEntity.
   TrainerEntity toEntity() {
     return TrainerEntity(
       uid: uid,
@@ -39,6 +45,7 @@ extension TrainerModelX on TrainerModel {
     );
   }
 
+  /// Creates TrainerModel from a TrainerEntity.
   static TrainerModel fromEntity(TrainerEntity entity) {
     return TrainerModel(
       uid: entity.uid,

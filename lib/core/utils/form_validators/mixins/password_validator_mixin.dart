@@ -1,6 +1,8 @@
 import 'package:fitzen/core/constant/validation_messages.dart';
 
+/// Mixin password validation logic.
 mixin PasswordValidatorMixin {
+  /// Validates password format; returns error message if invalid, else null.
   String? validatePassword(String? password) {
     if (password == null || password.trim().isEmpty) {
       return ValidationMessages.passwordEmpty;
@@ -12,7 +14,10 @@ mixin PasswordValidatorMixin {
   }
 }
 
+/// Mixin confirmPassword validation logic.
 mixin ConfirmPasswordValidatorMixin {
+  /// Validates confirmPassword format;
+  /// returns error message if invalid, else null.
   String? validateConfirmPassword(String? confirmPassword, String? password) {
     if (confirmPassword == null || confirmPassword.trim().isEmpty) {
       return ValidationMessages.confirmPasswordEmpty;

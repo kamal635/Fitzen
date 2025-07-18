@@ -4,15 +4,21 @@ import 'package:fitzen/core/constant/app_strings.dart';
 import 'package:fitzen/core/widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
 
+///  AlreadyHaveAccount widget to show if the user already have an account
 class AlreadyHaveAccount extends StatelessWidget {
-  const AlreadyHaveAccount({super.key, required this.onPressed});
+  /// Creates a [AlreadyHaveAccount]
+  ///
+  ///with requires [onPressed]
+  const AlreadyHaveAccount({required this.onPressed, super.key});
 
-  final Function()? onPressed;
+  /// A callback that is called when the user tapped.
+  final VoidCallback? onPressed;
+
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
+      children: <Widget>[
         Flexible(
           child: Text(
             AppStrings.haveAccount,

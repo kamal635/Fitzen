@@ -8,7 +8,9 @@ import 'package:fitzen/features/auth/presentation/shared_widgets/text_field_auth
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/// UI body for the Reset Password page.
 class ResetPasswordPageBody extends StatelessWidget {
+  /// Creates a [ResetPasswordPageBody] widget.
   const ResetPasswordPageBody({super.key});
 
   @override
@@ -24,13 +26,13 @@ class ResetPasswordPageBody extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
+              children: <Widget>[
                 // section Icon / title / subtitle
                 const IconWithTitleAndSubTitleWidget(
                   iconColor: AppColors.secondary,
                   icon: AppIcons.resetPassword,
                   title: AppStrings.resetPasswordTitle,
-                  subTitleitle: AppStrings.resetPasswordSubTitle,
+                  subTitle: AppStrings.resetPasswordSubTitle,
                 ),
 
                 SizedBox(height: 50.h),

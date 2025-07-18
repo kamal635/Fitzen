@@ -1,5 +1,11 @@
+/// Holds the plugin identifiers for Firebase services.
 abstract class FirebasePluginsStrings {
-  static const cloudFirestore = 'cloud_firestore';
-  static const firebaseStorage = 'firebase_storage';
-  static const firebaseAuth = 'firebase_auth';
+  /// Plugin identifier for Cloud Firestore.
+  static const String cloudFirestore = 'cloud_firestore';
+
+  /// Plugin identifier for Firebase Storage.
+  static const String firebaseStorage = 'firebase_storage';
+
+  /// Plugin identifier for Firebase Authentication.
+  static const String firebaseAuth = 'firebase_auth';
 }

@@ -7,7 +7,10 @@ import 'package:fitzen/features/auth/presentation/shared_widgets/icon_title_subt
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/// Fourth step in the trainer registration flow.
 class TrainerRegistrationStepFour extends StatelessWidget {
+  ///
+  /// create [TrainerRegistrationStepFour]
   const TrainerRegistrationStepFour({super.key});
 
   @override
@@ -16,13 +19,13 @@ class TrainerRegistrationStepFour extends StatelessWidget {
       padding: AppPaddings.horizontalGeneralPage,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
-        children: [
+        children: <Widget>[
           // section Icon / title / subtitle
           const IconWithTitleAndSubTitleWidget(
             iconColor: AppColors.green,
             icon: AppIcons.check,
             title: AppStrings.step4Title,
-            subTitleitle: AppStrings.underReview,
+            subTitle: AppStrings.underReview,
           ),
 
           SizedBox(height: 48.h),

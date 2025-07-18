@@ -10,31 +10,34 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+/// Displays onboarding progress indicator and navigation button.
+/// Uses ConsumerWidget to react to state changes.
 class OnBoardingIndicatorAndButtonSection extends ConsumerWidget {
+  /// Create [OnBoardingIndicatorAndButtonSection]
   const OnBoardingIndicatorAndButtonSection({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // Watch the PageController and current page index from Riverpod
-    final controller = ref.watch(onboardingPageControllerProvider);
-    final pageIndex = ref.watch(onboardingPageIndexProvider);
+    final PageController controller = ref.watch(
+      onboardingPageControllerProvider,
+    );
+    final int pageIndex = ref.watch(onboardingPageIndexProvider);
 
     return Expanded(
-      flex: 1,
       child: Column(
-        children: [
+        children: <Widget>[
           SmoothPageIndicator(
             controller: controller,
             count: listOnboarding.length,
             effect: SlideEffect(
               dotWidth: 10.w,
               dotHeight: 10.h,
-              paintStyle: PaintingStyle.fill,
               dotColor: AppColors.grey,
               activeDotColor: AppColors.secondary,
             ),
             // Allow user to jump to a specific page by tapping a dot
-            onDotClicked: (index) {
+            onDotClicked: (int index) {
               controller.animateToPage(
                 index,
                 duration: const Duration(milliseconds: 300),
@@ -49,21 +52,23 @@ class OnBoardingIndicatorAndButtonSection extends ConsumerWidget {
           RawMaterialButton(
             onPressed: () async {
               // Check if it's the last onboarding page
-              final isLastPage = pageIndex == listOnboarding.length - 1;
+              final bool isLastPage = pageIndex == listOnboarding.length - 1;
 
               if (isLastPage) {
                 // Mark onboarding as done in persistent storage
                 await ref.read(setOnboardingDoneProvider).call();
 
                 // Refresh the onboarding state provider
-                final _ = ref.refresh(isOnboardingDoneFutureProvider);
+                final AsyncValue<bool> _ = ref.refresh(
+                  isOnboardingDoneFutureProvider,
+                );
 
                 // Navigate to SignUp screen if the widget is still mounted
                 if (context.mounted) {
-                  context.go(RouterName.whoAreYou);
+                  context.go(RouterName.chooseRole);
                 }
               } else {
-                controller.nextPage(
+                await controller.nextPage(
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.ease,
                 );

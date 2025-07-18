@@ -3,21 +3,33 @@ import 'package:fitzen/core/constant/app_fonts.dart';
 import 'package:fitzen/core/constant/app_strings.dart';
 import 'package:flutter/material.dart';
 
+/// A checkbox used to confirm agreement to terms and conditions.
+///
+/// Typically used in registration or onboarding forms.
 class TermsAgreementCheckbox extends StatelessWidget {
+  ///
+  /// create [TermsAgreementCheckbox]
   const TermsAgreementCheckbox({
-    super.key,
     required this.value,
+    super.key,
     this.onChanged,
     this.errorText,
   });
+
+  /// [value] determines if the checkbox is checked.
   final bool value;
+
+  /// [errorText] shows an error message below the checkbox if needed.
   final String? errorText;
-  final Function(bool?)? onChanged;
+
+  /// [onChanged] is the callback when the user toggles the checkbox.
+  final ValueChanged<bool?>? onChanged;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+      children: <Widget>[
         Theme(
           data: Theme.of(context).copyWith(
             splashColor: Colors.transparent,
@@ -40,7 +52,7 @@ class TermsAgreementCheckbox extends StatelessWidget {
         ),
 
         Text(
-          errorText ?? "",
+          errorText ?? '',
           style: AppTextStyles.labelSmall.copyWith(color: AppColors.red),
           overflow: TextOverflow.ellipsis,
         ),

@@ -11,13 +11,13 @@ void main() {
     validator = TrainerValidator();
   });
 
-  group("validateUploadCertification", () {
-    test("should return error if file is null", () {
+  group('validateUploadCertification', () {
+    test('should return error if file is null', () {
       expect(validator.validateUploadCertification(null), isNotNull);
     });
 
-    test("should return null if file is provided", () {
-      final file = File("path/to/file.pdf");
+    test('should return null if file is provided', () {
+      final File file = File('path/to/file.pdf');
       expect(validator.validateUploadCertification(file), isNull);
     });
   });

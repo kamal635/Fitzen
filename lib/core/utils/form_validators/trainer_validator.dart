@@ -19,13 +19,13 @@ class TrainerValidator
   //-------------------------------------------------------------------
   //
 
-  // validator years of experience
+  /// validator years of experience logic
   String? validateYearsOfExperience(String? years) {
     if (years == null || years.trim().isEmpty) {
       return ValidationMessages.yearsOfExperienceEmpty;
     }
 
-    final parsed = int.tryParse(years);
+    final int? parsed = int.tryParse(years);
     if (parsed == null) {
       return ValidationMessages.yearsOfExperienceNotNumber;
     }
@@ -47,13 +47,13 @@ class TrainerValidator
   //-------------------------------------------------------------------
   //
 
-  // validator specializations
+  /// validator specializations logic
   String? validateSpecializations(List<String>? specs) {
     if (specs == null || specs.isEmpty) {
       return ValidationMessages.specializationMustAddOne;
     }
 
-    for (var spec in specs) {
+    for (final String spec in specs) {
       if (spec.trim().length < 2) {
         return ValidationMessages.specializationTooShort;
       }
@@ -62,7 +62,7 @@ class TrainerValidator
         return ValidationMessages.specializationTooHigh;
       }
 
-      final containsLettersRegex = RegExp(
+      final RegExp containsLettersRegex = RegExp(
         ValidationConstants.containsLettersRegex,
       );
       if (!containsLettersRegex.hasMatch(spec.trim())) {
@@ -77,8 +77,7 @@ class TrainerValidator
   //-------------------------------------------------------------------
   //
 
-  // validator Certification name
-
+  /// validator Certification name logic
   String? validateCertificationName(String? cert) {
     if (cert == null || cert.trim().isEmpty || cert.trim().length < 2) {
       return ValidationMessages.certificationTooShort;
@@ -88,7 +87,7 @@ class TrainerValidator
       return ValidationMessages.certificationTooHigh;
     }
 
-    final containsLettersRegex = RegExp(
+    final RegExp containsLettersRegex = RegExp(
       ValidationConstants.containsLettersRegex,
     );
     if (!containsLettersRegex.hasMatch(cert.trim())) {
@@ -101,7 +100,7 @@ class TrainerValidator
   //-------------------------------------------------------------------
   //
 
-  // validator upload certitcation
+  /// validator upload certitcation logic
   String? validateUploadCertification(File? file) {
     if (file == null) {
       return ValidationMessages.mustSelectCertificate;
@@ -113,8 +112,8 @@ class TrainerValidator
   //-------------------------------------------------------------------
   //
 
-  // validator Terms Agreement
-  String? validateTermsAgreement(bool terms) {
+  /// validator Terms Agreement logic
+  String? validateTermsAgreement({required bool terms}) {
     if (!terms) {
       return ValidationMessages.termsAgreement;
     }

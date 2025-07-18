@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/// A customizable TextFormField widget used throughout the app.
 class CustomTextFormField extends StatelessWidget {
+  /// Creates a [CustomTextFormField].
+
   const CustomTextFormField({
     super.key,
     this.obscureText = false,
@@ -25,21 +28,54 @@ class CustomTextFormField extends StatelessWidget {
     this.onTapSuffixIcon,
     this.initialValue,
   });
+
+  /// Determines whether the text should be obscured (e.g., for passwords).
   final bool obscureText;
+
+  /// An optional icon to display at the beginning of the text field.
   final IconData? prefixIcon;
+
+  /// An optional icon to display at the end of the text field.
   final IconData? suffixIcon;
+
+  /// A hint to show when the text field is empty.
   final String? hintText;
+
+  /// Text to display below the field if there’s an error.
   final String? errorText;
+
+  /// Controls whether the suffix icon should be displayed.
+
   final bool isSuffixIcon;
+
+  ///  optional widget to show at the end of the text field instead of icon
   final Widget? widgetSuffix;
+
+  /// widget to be displayed in the center of the field-usually for custom UI
   final Widget? widgetCenter;
+
+  /// If true, aligns the text to the center.
   final bool isCenter;
+
+  /// The type of keyboard to use for editing the text.
   final TextInputType? keyboardType;
+
+  /// If true, sets the keyboard type to number input.
   final bool isNumberKeyboard;
+
+  /// If true, the text field is read-only and cannot be edited.
   final bool readOnly;
-  final Function(String)? onChanged;
-  final Function()? onTapSuffixIcon;
+
+  /// A callback that is called when the text changes.
+  final void Function(String)? onChanged;
+
+  /// A callback function triggered when the suffix icon is tapped.
+  final VoidCallback? onTapSuffixIcon;
+
+  /// The action button to use for the keyboard (e.g., next, done).
   final TextInputAction? textInputAction;
+
+  /// The initial value to be displayed in the text field.
   final String? initialValue;
 
   @override
@@ -51,7 +87,7 @@ class CustomTextFormField extends StatelessWidget {
       readOnly: readOnly,
       onChanged: onChanged,
       textInputAction: textInputAction ?? TextInputAction.next,
-      inputFormatters: [
+      inputFormatters: <TextInputFormatter>[
         if (isNumberKeyboard)
           FilteringTextInputFormatter.digitsOnly, // only numbers
       ],
@@ -85,7 +121,7 @@ class CustomTextFormField extends StatelessWidget {
         //Default border style (used in general unless overridden below)
         border: OutlineInputBorder(
           borderRadius: AppRadius.radiusCircularGeneral,
-          borderSide: const BorderSide(color: AppColors.grey, width: 1),
+          borderSide: const BorderSide(color: AppColors.grey),
         ),
 
         // Border when the field is enabled but not focused
@@ -99,20 +135,19 @@ class CustomTextFormField extends StatelessWidget {
           borderRadius: AppRadius.radiusCircularGeneral,
           borderSide: BorderSide(
             color: readOnly ? AppColors.darkGrey : AppColors.secondary,
-            width: 1,
           ),
         ),
 
         // Error border when validation fails
         errorBorder: OutlineInputBorder(
           borderRadius: AppRadius.radiusCircularGeneral,
-          borderSide: const BorderSide(color: AppColors.red, width: 1),
+          borderSide: const BorderSide(color: AppColors.red),
         ),
 
         // Error border when focused and validation fails
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: AppRadius.radiusCircularGeneral,
-          borderSide: const BorderSide(color: AppColors.red, width: 1),
+          borderSide: const BorderSide(color: AppColors.red),
         ),
       ),
     );

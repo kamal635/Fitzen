@@ -9,13 +9,13 @@ void main() {
     validator = TrainerValidator();
   });
 
-  group("validateTermsAgreement", () {
-    test("should return error if terms not agreed", () {
-      expect(validator.validateTermsAgreement(false), isNotNull);
+  group('validateTermsAgreement', () {
+    test('should return error if terms not agreed', () {
+      expect(validator.validateTermsAgreement(terms: false), isNotNull);
     });
 
-    test("should return null if terms agreed", () {
-      expect(validator.validateTermsAgreement(true), isNull);
+    test('should return null if terms agreed', () {
+      expect(validator.validateTermsAgreement(terms: true), isNull);
     });
   });
 }

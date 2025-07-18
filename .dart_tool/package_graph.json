@@ -34,8 +34,14 @@
         "flutter_lints",
         "flutter_test",
         "freezed",
-        "json_serializable"
+        "json_serializable",
+        "very_good_analysis"
       ]
+    },
+    {
+      "name": "very_good_analysis",
+      "version": "9.0.0",
+      "dependencies": []
     },
     {
       "name": "json_serializable",

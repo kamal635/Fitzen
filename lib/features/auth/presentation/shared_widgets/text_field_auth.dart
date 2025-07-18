@@ -3,10 +3,14 @@ import 'package:fitzen/core/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/// A customizable TextFieldAuth widget used throughout the app.
 class TextFieldAuth extends StatelessWidget {
+  /// Creates a [TextFieldAuth].
+  ///
+  /// with [titleField] requires.
   const TextFieldAuth({
-    super.key,
     required this.titleField,
+    super.key,
     this.obscureText = false,
     this.prefixIcon,
     this.suffixIcon,
@@ -16,7 +20,7 @@ class TextFieldAuth extends StatelessWidget {
     this.readOnly = false,
     this.widgetCenter,
     this.isCenter = false,
-    this.widget,
+    this.widgetSuffix,
     this.keyboardType,
     this.spaceBetweenTextField,
     this.onChanged,
@@ -25,30 +29,67 @@ class TextFieldAuth extends StatelessWidget {
     this.onTapSuffixIcon,
     this.initialValue,
   });
+
+  ///To specify the field title above
   final String titleField;
-  final bool obscureText;
-  final IconData? prefixIcon;
-  final IconData? suffixIcon;
-  final String? hintText;
-  final bool isSuffixIcon;
-  final Widget? widget;
-  final TextInputType? keyboardType;
-  final bool isNumberKeyboard;
-  final bool readOnly;
-  final Widget? widgetCenter;
-  final bool isCenter;
+
+  /// The distance between each field
   final double? spaceBetweenTextField;
-  final Function(String)? onChanged;
+
+  /// Determines whether the text should be obscured (e.g., for passwords).
+  final bool obscureText;
+
+  /// An optional icon to display at the beginning of the text field.
+  final IconData? prefixIcon;
+
+  /// An optional icon to display at the end of the text field.
+  final IconData? suffixIcon;
+
+  /// A hint to show when the text field is empty.
+  final String? hintText;
+
+  /// Text to display below the field if there’s an error.
   final String? errorText;
+
+  /// Controls whether the suffix icon should be displayed.
+
+  final bool isSuffixIcon;
+
+  ///  optional widget to show at the end of the text field instead of icon
+  final Widget? widgetSuffix;
+
+  /// widget to be displayed in the center of the field-usually for custom UI
+  final Widget? widgetCenter;
+
+  /// If true, aligns the text to the center.
+  final bool isCenter;
+
+  /// The type of keyboard to use for editing the text.
+  final TextInputType? keyboardType;
+
+  /// If true, sets the keyboard type to number input.
+  final bool isNumberKeyboard;
+
+  /// If true, the text field is read-only and cannot be edited.
+  final bool readOnly;
+
+  /// A callback that is called when the text changes.
+  final void Function(String)? onChanged;
+
+  /// A callback function triggered when the suffix icon is tapped.
+  final VoidCallback? onTapSuffixIcon;
+
+  /// The action button to use for the keyboard (e.g., next, done).
   final TextInputAction? textInputAction;
-  final Function()? onTapSuffixIcon;
+
+  /// The initial value to be displayed in the text field.
   final String? initialValue;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+      children: <Widget>[
         Text(titleField, style: AppTextStyles.titleLarge),
 
         SizedBox(height: 10.h),
@@ -59,7 +100,7 @@ class TextFieldAuth extends StatelessWidget {
           prefixIcon: prefixIcon,
           suffixIcon: suffixIcon,
           isSuffixIcon: isSuffixIcon,
-          widgetSuffix: widget,
+          widgetSuffix: widgetSuffix,
           keyboardType: keyboardType,
           isNumberKeyboard: isNumberKeyboard,
           readOnly: readOnly,

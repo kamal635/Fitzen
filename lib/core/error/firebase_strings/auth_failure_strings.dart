@@ -1,39 +1,98 @@
+/// Contains constant error messages related to authentication failures.
 abstract class AuthFailureStrings {
-  //===== code ======//
-  static const invalidEmailCode = 'invalid-email';
-  static const emailAlreadyInUseCode = 'email-already-in-use';
-  static const weakPasswordCode = 'weak-password';
-  static const userNotFoundCode = 'user-not-found';
-  static const wrongPasswordCode = 'wrong-password';
-  static const invalidCredentialCode = 'invalid-credential';
-  static const userDisabledCode = 'user-disabled';
-  static const operationNotAllowedCode = 'operation-not-allowed';
-  static const tooManyRequestsCode = 'too-many-requests';
-  static const requiresRecentLoginCode = 'requires-recent-login';
-  static const networkRequestFailedCode = 'network-request-failed';
-  static const internalErrorCode = 'internal-error';
-  static const unknownCode = 'unknown';
+  ///
+  ///---------------- code ---------------------------
+  ///
 
-  //===== message ======//
-  static const invalidEmailMessage = 'The email address is not valid.';
-  static const emailAlreadyInUseMessage = 'This email is already in use.';
-  static const weakPasswordMessage =
+  /// Error code for invalid email format.
+  static const String invalidEmailCode = 'invalid-email';
+
+  /// Error code indicating email is already registered.
+  static const String emailAlreadyInUseCode = 'email-already-in-use';
+
+  /// Error code for weak password strength.
+  static const String weakPasswordCode = 'weak-password';
+
+  /// Error code when user is not found.
+  static const String userNotFoundCode = 'user-not-found';
+
+  /// Error code for incorrect password.
+  static const String wrongPasswordCode = 'wrong-password';
+
+  /// Error code for invalid authentication credentials.
+  static const String invalidCredentialCode = 'invalid-credential';
+
+  /// Error code when user account is disabled.
+  static const String userDisabledCode = 'user-disabled';
+
+  /// Error code for disallowed operations.
+  static const String operationNotAllowedCode = 'operation-not-allowed';
+
+  /// Error code for too many requests made to the server.
+  static const String tooManyRequestsCode = 'too-many-requests';
+
+  /// Error code requiring recent login to perform action.
+  static const String requiresRecentLoginCode = 'requires-recent-login';
+
+  /// Error code for network request failure.
+  static const String networkRequestFailedCode = 'network-request-failed';
+
+  /// Error code for internal errors.
+  static const String internalErrorCode = 'internal-error';
+
+  /// Error code for unknown authentication errors.
+  static const String unknownCode = 'unknown';
+
+  ///
+  ///-------------------- Message ----------------------------
+  ///
+
+  /// Message shown when the email format is invalid.
+  static const String invalidEmailMessage = 'The email address is not valid.';
+
+  /// Message shown when the email is already registered.
+  static const String emailAlreadyInUseMessage =
+      'This email is already in use.';
+
+  /// Message shown when the password strength is too weak.
+  static const String weakPasswordMessage =
       'The password is too weak. Please choose a stronger one.';
-  static const userNotFoundMessage = 'No account found with this email.';
-  static const wrongPasswordMessage = 'The password you entered is incorrect.';
-  static const invalidCredentialMessage =
+
+  /// Message shown when no user account is found for the email.
+  static const String userNotFoundMessage = 'No account found with this email.';
+
+  /// Message shown when the entered password is incorrect.
+  static const String wrongPasswordMessage =
+      'The password you entered is incorrect.';
+
+  /// Message shown when the provided authentication credentials are invalid.
+  static const String invalidCredentialMessage =
       'The provided credentials are invalid. Please try again.';
-  static const userDisabledMessage =
+
+  /// Message shown when the user account has been disabled.
+  static const String userDisabledMessage =
       'This account has been disabled. Please contact support.';
-  static const operationNotAllowedMessage =
+
+  /// Message shown when the sign-in method is not allowed.
+  static const String operationNotAllowedMessage =
       'This sign-in method is not allowed.';
-  static const tooManyRequestsMessage =
+
+  /// Message shown when too many requests have been made in a short time.
+  static const String tooManyRequestsMessage =
       'Too many requests. Please try again later.';
-  static const requiresRecentLoginMessage =
+
+  /// Message shown when a recent login is required to proceed.
+  static const String requiresRecentLoginMessage =
       'Please log in again before performing this action.';
-  static const networkRequestFailedMessage =
+
+  /// Message shown when there is a network connectivity issue.
+  static const String networkRequestFailedMessage =
       'Network error. Please check your internet connection.';
-  static const internalErrorMessage =
+
+  /// Message shown when an internal error has occurred.
+  static const String internalErrorMessage =
       'An internal error occurred. Please try again later.';
-  static const unknownErrorMessage = 'An unknown error occurred.';
+
+  /// Message shown for unknown authentication errors.
+  static const String unknownErrorMessage = 'An unknown error occurred.';
 }
