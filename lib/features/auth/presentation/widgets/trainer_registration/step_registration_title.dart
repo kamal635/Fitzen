@@ -1,8 +1,12 @@
 import 'package:fitzen/core/constant/app_fonts.dart';
 import 'package:flutter/material.dart';
 
+/// A widget that displays a title for a registration step.
 class StepsRegistraionTitle extends StatelessWidget {
-  const StepsRegistraionTitle({super.key, required this.title});
+  /// Creates a registration step title with the given [title].
+  const StepsRegistraionTitle({required this.title, super.key});
+
+  /// The text shown as the step title.
   final String title;
 
   @override

@@ -4,7 +4,11 @@ import 'package:fitzen/features/onboarding/presentation/widgets/onboarding_indic
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/// Onboarding page body widget.
+///
+/// Displays the main content of the onboarding screen.
 class OnBoardingPageBody extends StatelessWidget {
+  /// Create [OnBoardingPageBody]
   const OnBoardingPageBody({super.key});
 
   @override
@@ -12,7 +16,7 @@ class OnBoardingPageBody extends StatelessWidget {
     return Padding(
       padding: AppPaddings.horizontalGeneralPage,
       child: Column(
-        children: [
+        children: <Widget>[
           const OnBoardingImageAndTitleSection(),
 
           SizedBox(height: 20.h),

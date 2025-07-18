@@ -89,7 +89,7 @@ class TextFieldAuth extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+      children: <Widget>[
         Text(titleField, style: AppTextStyles.titleLarge),
 
         SizedBox(height: 10.h),

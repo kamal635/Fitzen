@@ -265,7 +265,7 @@ class TrainerFormNotifier extends StateNotifier<TrainerFormState>
   /// Update terms agreement and validate it immediately
   void toggleCheckTerms({required bool value}) {
     final String? termsAgreementError = _validator.validateTermsAgreement(
-      value,
+      terms: value,
     );
 
     state = state.copyWith(
@@ -286,7 +286,7 @@ class TrainerFormNotifier extends StateNotifier<TrainerFormState>
         state.fileCertification,
       ),
       termsAgreementError: _validator.validateTermsAgreement(
-        state.termsAgreement,
+        terms: state.termsAgreement,
       ),
     );
   }

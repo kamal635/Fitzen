@@ -5,8 +5,12 @@ import 'package:fitzen/core/constant/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/// A custom [AppBar] for the Trainer registration flow.
 class AppBarTrainer extends StatelessWidget implements PreferredSizeWidget {
-  const AppBarTrainer({super.key, required this.currentStep});
+  /// Create [AppBarTrainer] with [currentStep] requires
+  const AppBarTrainer({required this.currentStep, super.key});
+
+  /// Displays progress based on [currentStep].
   final int currentStep;
   @override
   Widget build(BuildContext context) {
@@ -32,7 +36,7 @@ class AppBarTrainer extends StatelessWidget implements PreferredSizeWidget {
           padding: EdgeInsets.only(top: 10.h),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(4, (i) {
+            children: List<Widget>.generate(4, (int i) {
               return Container(
                 margin: EdgeInsets.symmetric(horizontal: 8.r),
                 height: 4.h,

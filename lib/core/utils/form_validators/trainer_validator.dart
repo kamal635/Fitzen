@@ -113,7 +113,7 @@ class TrainerValidator
   //
 
   /// validator Terms Agreement logic
-  String? validateTermsAgreement(bool terms) {
+  String? validateTermsAgreement({required bool terms}) {
     if (!terms) {
       return ValidationMessages.termsAgreement;
     }

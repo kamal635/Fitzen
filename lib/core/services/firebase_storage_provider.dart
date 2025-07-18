@@ -3,6 +3,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:fitzen/core/services/firebase_app_providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+/// Provides a FirebaseStorage instance tied to the FirebaseApp.
 final Provider<FirebaseStorage> firbaseStorageProvider =
     Provider<FirebaseStorage>((Ref<FirebaseStorage> ref) {
       final FirebaseApp app = ref.watch(firebaseAppProvider);

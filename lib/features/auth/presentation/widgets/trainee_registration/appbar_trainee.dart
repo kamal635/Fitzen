@@ -3,7 +3,10 @@ import 'package:fitzen/core/constant/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/// A custom [AppBar] widget for the Trainee layout.
+/// Implements [PreferredSizeWidget] to define its height.
 class AppBarTrainee extends StatelessWidget implements PreferredSizeWidget {
+  /// Create [AppBarTrainee]
   const AppBarTrainee({super.key});
 
   @override

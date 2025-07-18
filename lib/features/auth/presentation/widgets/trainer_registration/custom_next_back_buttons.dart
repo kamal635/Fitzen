@@ -20,7 +20,7 @@ class CustomNextBackButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
+      children: <Widget>[
         Align(
           alignment: Alignment.bottomLeft,
           child: CustomTextButton(title: AppStrings.back, onPressed: onBack),

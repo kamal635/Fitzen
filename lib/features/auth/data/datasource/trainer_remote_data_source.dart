@@ -36,8 +36,14 @@ class TrainerRemoteDataSourceImpl implements TrainerRemoteDataSource {
     required this.firebaseFirestore,
     required this.firebaseStorage,
   });
+
+  /// Firebase authentication instance used for handling user auth.
   final FirebaseAuth firebaseAuth;
+
+  /// Firestore instance used for database operations.
   final FirebaseFirestore firebaseFirestore;
+
+  /// Firebase Storage instance used for uploading and retrieving files.
   final FirebaseStorage firebaseStorage;
 
   @override

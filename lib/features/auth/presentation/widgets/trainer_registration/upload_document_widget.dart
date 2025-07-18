@@ -8,7 +8,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/// A widget for uploading documents, used within forms.
+/// Uses Riverpod's [ConsumerWidget] to access providers.
 class UploadDocumentWidget extends ConsumerWidget {
+  /// Creates [UploadDocumentWidget].
   const UploadDocumentWidget({super.key});
 
   @override

@@ -5,25 +5,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/// Displays onboarding image and title section.
+/// Uses ConsumerWidget to listen to providers.
 class OnBoardingImageAndTitleSection extends ConsumerWidget {
+  /// Create [OnBoardingImageAndTitleSection]
   const OnBoardingImageAndTitleSection({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final controller = ref.watch(onboardingPageControllerProvider);
+    final PageController controller = ref.watch(
+      onboardingPageControllerProvider,
+    );
 
     return Expanded(
       flex: 2,
       child: PageView.builder(
         controller: controller,
         itemCount: listOnboarding.length,
-        itemBuilder: (context, i) {
-          final item = listOnboarding[i];
-          final imageWidth = 400.w;
-          final imageHeight = (imageWidth / (12 / 9)).h;
+        itemBuilder: (BuildContext context, int i) {
+          final OnBoardingModel item = listOnboarding[i];
+          final double imageWidth = 400.w;
+          final double imageHeight = (imageWidth / (12 / 9)).h;
           return Column(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: [
+            children: <Widget>[
               SizedBox(
                 height: imageHeight,
                 width: imageWidth,
@@ -31,7 +36,7 @@ class OnBoardingImageAndTitleSection extends ConsumerWidget {
               ),
               Flexible(
                 child: Text(
-                  item.tilte,
+                  item.title,
                   style: AppTextStyles.displayMedium,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 3,

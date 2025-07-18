@@ -29,7 +29,7 @@ class TermsAgreementCheckbox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+      children: <Widget>[
         Theme(
           data: Theme.of(context).copyWith(
             splashColor: Colors.transparent,

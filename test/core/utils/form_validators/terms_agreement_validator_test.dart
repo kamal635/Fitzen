@@ -11,11 +11,11 @@ void main() {
 
   group('validateTermsAgreement', () {
     test('should return error if terms not agreed', () {
-      expect(validator.validateTermsAgreement(false), isNotNull);
+      expect(validator.validateTermsAgreement(terms: false), isNotNull);
     });
 
     test('should return null if terms agreed', () {
-      expect(validator.validateTermsAgreement(true), isNull);
+      expect(validator.validateTermsAgreement(terms: true), isNull);
     });
   });
 }

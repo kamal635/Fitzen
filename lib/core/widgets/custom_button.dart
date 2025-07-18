@@ -27,14 +27,16 @@ class CustomButton extends StatelessWidget {
 
         style: ButtonStyle(
           // Border
-          shape: WidgetStatePropertyAll(
+          shape: WidgetStatePropertyAll<OutlinedBorder?>(
             RoundedRectangleBorder(
               borderRadius: AppRadius.radiusCircularGeneral,
             ),
           ),
 
           //background
-          backgroundColor: const WidgetStatePropertyAll(AppColors.secondary),
+          backgroundColor: const WidgetStatePropertyAll<Color?>(
+            AppColors.secondary,
+          ),
         ),
         child: Text(title, style: AppTextStyles.button),
       ),
