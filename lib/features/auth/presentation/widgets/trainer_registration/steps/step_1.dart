@@ -1,20 +1,20 @@
-import 'package:fitzen/core/constant/app_icons.dart';
 import 'package:fitzen/core/constant/app_paddings.dart';
 import 'package:fitzen/core/constant/app_strings.dart';
 import 'package:fitzen/core/routing/router_name.dart';
-import 'package:fitzen/core/widgets/custom_button.dart';
-import 'package:fitzen/features/auth/presentation/providers/trainer_provider/trainer_form_validate/trainer_form_notifier.dart';
-import 'package:fitzen/features/auth/presentation/providers/trainer_provider/trainer_form_validate/trainer_form_state.dart';
 import 'package:fitzen/features/auth/presentation/shared_widgets/already_have_account.dart';
-import 'package:fitzen/features/auth/presentation/shared_widgets/text_field_auth.dart';
+import 'package:fitzen/features/auth/presentation/widgets/trainer_registration/forms/confirm_password_field.dart';
+import 'package:fitzen/features/auth/presentation/widgets/trainer_registration/forms/email_field.dart';
+import 'package:fitzen/features/auth/presentation/widgets/trainer_registration/forms/first_name_field.dart';
+import 'package:fitzen/features/auth/presentation/widgets/trainer_registration/forms/last_name_field.dart';
+import 'package:fitzen/features/auth/presentation/widgets/trainer_registration/forms/password_field.dart';
+import 'package:fitzen/features/auth/presentation/widgets/trainer_registration/next_buttons/step_one_next_button.dart';
 import 'package:fitzen/features/auth/presentation/widgets/trainer_registration/step_registration_title.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 /// First step of the trainer registration process.
-class TrainerRegistrationStepOne extends ConsumerWidget {
+class TrainerRegistrationStepOne extends StatelessWidget {
   ///
   /// create [TrainerRegistrationStepOne]
   const TrainerRegistrationStepOne({super.key, this.onNext});
@@ -22,9 +22,7 @@ class TrainerRegistrationStepOne extends ConsumerWidget {
   /// [onNext] is triggered when the user wants to proceed to the next step.
   final VoidCallback? onNext;
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final TrainerFormState state = ref.watch(trainerFormProvider);
-
+  Widget build(BuildContext context) {
     return Padding(
       padding: AppPaddings.horizontalGeneralPage,
       child: Column(
@@ -36,104 +34,25 @@ class TrainerRegistrationStepOne extends ConsumerWidget {
                 children: <Widget>[
                   SizedBox(height: 35.h),
 
-                  // title Step One
+                  /// title Step One
                   const StepsRegistraionTitle(title: AppStrings.step1Title),
 
                   SizedBox(height: 35.h),
 
-                  // First Name
-                  TextFieldAuth(
-                    titleField: AppStrings.firstName,
-                    hintText: AppStrings.enterFirstName,
-                    prefixIcon: AppIcons.user,
+                  /// First Name
+                  const FirstNameField(),
 
-                    initialValue: state.firstName,
-                    errorText: state.firstNameError,
-                    onChanged: (String value) {
-                      ref
-                          .read(trainerFormProvider.notifier)
-                          .updateFirstName(value);
-                    },
-                  ),
+                  /// Last Name
+                  const LastNameField(),
 
-                  // Last Name
-                  TextFieldAuth(
-                    titleField: AppStrings.lastName,
-                    hintText: AppStrings.enteLastName,
-                    prefixIcon: AppIcons.user,
+                  /// Email
+                  const EmailField(),
 
-                    initialValue: state.lastName,
-                    errorText: state.lastNameError,
-                    onChanged: (String value) {
-                      ref
-                          .read(trainerFormProvider.notifier)
-                          .updateLastName(value);
-                    },
-                  ),
+                  /// Password
+                  const PasswordField(),
 
-                  // Email
-                  TextFieldAuth(
-                    titleField: AppStrings.email,
-                    hintText: AppStrings.enteEmail,
-                    prefixIcon: AppIcons.email,
-
-                    initialValue: state.email,
-                    errorText: state.emailError,
-                    onChanged: (String value) {
-                      ref.read(trainerFormProvider.notifier).updateEmail(value);
-                    },
-                  ),
-
-                  // Password
-                  TextFieldAuth(
-                    obscureText: state.obscureTextPassword,
-                    titleField: AppStrings.password,
-                    hintText: AppStrings.createPassword,
-                    prefixIcon: AppIcons.lock,
-                    suffixIcon: state.obscureTextPassword
-                        ? AppIcons.eye
-                        : AppIcons.eyeOff,
-
-                    initialValue: state.password,
-                    onTapSuffixIcon: () {
-                      ref
-                          .read(trainerFormProvider.notifier)
-                          .toggleObscureTextPassword();
-                    },
-                    errorText: state.passwordError,
-
-                    onChanged: (String value) {
-                      ref
-                          .read(trainerFormProvider.notifier)
-                          .updatePassword(value);
-                    },
-                  ),
-
-                  // Confirm Password
-                  TextFieldAuth(
-                    obscureText: state.obscureTextConfirmPassword,
-                    titleField: AppStrings.confirmPassword,
-                    hintText: AppStrings.confirmYourPassword,
-                    prefixIcon: AppIcons.lock,
-                    suffixIcon: state.obscureTextConfirmPassword
-                        ? AppIcons.eye
-                        : AppIcons.eyeOff,
-
-                    initialValue: state.confirmPassword,
-                    onTapSuffixIcon: () {
-                      ref
-                          .read(trainerFormProvider.notifier)
-                          .toggleObscureTextConfirmPassword();
-                    },
-                    errorText: state.confirmPasswordError,
-
-                    textInputAction: TextInputAction.done,
-                    onChanged: (String value) {
-                      ref
-                          .read(trainerFormProvider.notifier)
-                          .updateConfirmPassword(value);
-                    },
-                  ),
+                  /// Confirm Password
+                  const ConfirmPasswordField(),
 
                   AlreadyHaveAccount(
                     onPressed: () {
@@ -145,46 +64,16 @@ class TrainerRegistrationStepOne extends ConsumerWidget {
             ),
           ),
 
+          /// Next Button
           Align(
             alignment: Alignment.bottomRight,
-
-            child: CustomButton(
-              title: AppStrings.next,
-              // Handle the Next button press in step one
-              onPressed: () {
-                // validate step one + go next
-                validateStepOneAndGoNext(ref);
-              },
+            child: StepOneNextButton(
+              onNext: onNext,
             ),
           ),
           SizedBox(height: 50.h),
         ],
       ),
     );
-  }
-
-  /// validate step one when user tapped to next step
-  void validateStepOneAndGoNext(WidgetRef ref) {
-    // 1 Get the notifier to call validation and access logic
-    final TrainerFormNotifier notifier = ref.read(trainerFormProvider.notifier)
-      // 2 Trigger validation: this updates the state immediately
-      ..validateStepOneFields();
-
-    //  IMPORTANT:
-    // ref.watch(trainerFormProvider) won't give the new updated state here,
-    // because rebuild happens in the *next frame* after state change.
-    //
-    // ref.read always reads the *latest* value at this exact moment.
-    //
-    // So, to get the updated errors, we read the state again:
-    final TrainerFormState state = ref.read(trainerFormProvider);
-
-    // 3 Check validity using the freshly updated state
-    final bool isValid = notifier.isValidStepOne(state);
-
-    // 4 If all fields are valid, move to the next step
-    if (isValid) {
-      onNext?.call();
-    }
   }
 }
