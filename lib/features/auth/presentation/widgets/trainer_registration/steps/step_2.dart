@@ -1,19 +1,15 @@
-import 'package:fitzen/core/constant/app_icons.dart';
 import 'package:fitzen/core/constant/app_paddings.dart';
 import 'package:fitzen/core/constant/app_strings.dart';
-import 'package:fitzen/core/widgets/custom_phone_number_field.dart';
-import 'package:fitzen/features/auth/presentation/providers/trainer_provider/trainer_form_validate/trainer_form_notifier.dart';
-import 'package:fitzen/features/auth/presentation/providers/trainer_provider/trainer_form_validate/trainer_form_state.dart';
-import 'package:fitzen/features/auth/presentation/shared_widgets/text_field_auth.dart';
-import 'package:fitzen/features/auth/presentation/widgets/trainer_registration/custom_next_back_buttons.dart';
+import 'package:fitzen/features/auth/presentation/widgets/trainer_registration/form_fields/phone_number_field.dart';
+import 'package:fitzen/features/auth/presentation/widgets/trainer_registration/form_fields/specializations_fields.dart';
+import 'package:fitzen/features/auth/presentation/widgets/trainer_registration/form_fields/years_of_experience_field.dart';
+import 'package:fitzen/features/auth/presentation/widgets/trainer_registration/next_buttons/step_two_next_button.dart';
 import 'package:fitzen/features/auth/presentation/widgets/trainer_registration/step_registration_title.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl_phone_field/phone_number.dart';
 
 /// Second step of the trainer registration process.
-class TrainerRegistrationStepTwo extends ConsumerWidget {
+class TrainerRegistrationStepTwo extends StatelessWidget {
   ///
   /// create [TrainerRegistrationStepTwo]
   const TrainerRegistrationStepTwo({super.key, this.onNext, this.onBack});
@@ -24,8 +20,7 @@ class TrainerRegistrationStepTwo extends ConsumerWidget {
   /// [onBack] is triggered when returning to the previous step.
   final VoidCallback? onBack;
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final TrainerFormState state = ref.watch(trainerFormProvider);
+  Widget build(BuildContext context) {
     return Padding(
       padding: AppPaddings.horizontalGeneralPage,
       child: Column(
@@ -44,53 +39,13 @@ class TrainerRegistrationStepTwo extends ConsumerWidget {
                   SizedBox(height: 35.h),
 
                   // phone number
-                  CustomPhoneNumberField(
-                    spaceBetweenField: state.phoneNumberError != null
-                        ? 20.h
-                        : 0,
-                    titleField: AppStrings.phoneNumber,
-
-                    initialValue: state.phoneNumber?.number ?? '',
-                    errorText: state.phoneNumberError,
-                    onChanged: (PhoneNumber phone) {
-                      ref
-                          .read(trainerFormProvider.notifier)
-                          .updatePhoneNumber(phone);
-                    },
-                  ),
+                  const PhoneNumberField(),
 
                   // years of experience
-                  TextFieldAuth(
-                    titleField: AppStrings.yearsExperience,
-                    hintText: AppStrings.exampleExperience,
-                    prefixIcon: AppIcons.calendar,
-                    isNumberKeyboard: true,
-                    keyboardType: TextInputType.number,
-
-                    initialValue: state.years,
-                    errorText: state.yearsOfExperienceError,
-                    onChanged: (String value) {
-                      ref
-                          .read(trainerFormProvider.notifier)
-                          .updateYearsOfExperience(value);
-                    },
-                  ),
+                  const YearsExperienceField(),
 
                   // specializations
-                  TextFieldAuth(
-                    titleField: AppStrings.specializations,
-                    hintText: AppStrings.exampleSpecializations,
-                    prefixIcon: AppIcons.dumbbell,
-                    textInputAction: TextInputAction.done,
-
-                    initialValue: state.rawSpecializationsInput,
-                    errorText: state.specializationsError,
-                    onChanged: (String value) {
-                      ref
-                          .read(trainerFormProvider.notifier)
-                          .updateSpecializations(value);
-                    },
-                  ),
+                  const SpecializationsField(),
 
                   SizedBox(height: 15.h),
                 ],
@@ -99,20 +54,7 @@ class TrainerRegistrationStepTwo extends ConsumerWidget {
           ),
 
           // next/back buttons
-          CustomNextBackButtons(
-            onBack: onBack,
-            onNext: () {
-              final TrainerFormNotifier notifier = ref.read(
-                trainerFormProvider.notifier,
-              )..validateStepTwoFields();
-
-              final TrainerFormState state = ref.read(trainerFormProvider);
-              final bool isValid = notifier.isValidStepTwo(state);
-              if (isValid) {
-                onNext?.call();
-              }
-            },
-          ),
+          const StepTwoNextBackButton(),
 
           SizedBox(height: 50.h),
         ],

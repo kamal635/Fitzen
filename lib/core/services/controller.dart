@@ -63,3 +63,76 @@ confirmPasswordControllerProvider = Provider.autoDispose<TextEditingController>(
     return controller;
   },
 );
+
+/// -------------------------------------------------------------------------
+final AutoDisposeProvider<TextEditingController>
+certificationNameControllerProvider =
+    Provider.autoDispose<TextEditingController>(
+      (Ref ref) {
+        final TextEditingController controller = TextEditingController(
+          text: ref.read(trainerFormProvider).certificationName,
+        );
+
+        ref.onDispose(controller.dispose);
+
+        return controller;
+      },
+    );
+
+/// -------------------------------------------------------------------------
+final AutoDisposeProvider<TextEditingController> phoneNumberControllerProvider =
+    Provider.autoDispose<TextEditingController>(
+      (Ref ref) {
+        final TextEditingController controller = TextEditingController(
+          text: ref.read(trainerFormProvider).phoneNumber?.number,
+        );
+
+        ref.onDispose(controller.dispose);
+
+        return controller;
+      },
+    );
+
+/// -------------------------------------------------------------------------
+final AutoDisposeProvider<TextEditingController>
+specializationsControllerProvider = Provider.autoDispose<TextEditingController>(
+  (Ref ref) {
+    final TextEditingController controller = TextEditingController(
+      text: ref.read(trainerFormProvider).rawSpecializationsInput,
+    );
+
+    ref.onDispose(controller.dispose);
+
+    return controller;
+  },
+);
+
+/// -------------------------------------------------------------------------
+final AutoDisposeProvider<TextEditingController>
+uploadCertificationControllerProvider =
+    Provider.autoDispose<TextEditingController>(
+      (Ref ref) {
+        final TextEditingController controller = TextEditingController(
+          text: ref.read(trainerFormProvider).fileName,
+        );
+
+        ref.onDispose(controller.dispose);
+
+        return controller;
+      },
+    );
+
+/// -------------------------------------------------------------------------
+final AutoDisposeProvider<TextEditingController>
+yearsOfExperienceControllerProvider =
+    Provider.autoDispose<TextEditingController>(
+      (Ref ref) {
+        final TextEditingController controller = TextEditingController(
+          text: ref.read(trainerFormProvider).years,
+        );
+
+        ref.onDispose(controller.dispose);
+
+        return controller;
+      },
+    );
