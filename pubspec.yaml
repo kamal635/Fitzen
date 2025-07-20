@@ -50,20 +50,16 @@ dependencies:
   retry: ^3.1.2
   shared_preferences: ^2.5.3
   smooth_page_indicator: ^1.2.1
-  
 
 #-----------------------------------------------------------------------------
 dev_dependencies:
-  build_runner: ^2.5.4 # Code generator runner (used with freezed, json_serializable)
+  build_runner: ^2.5.4
 
   flutter_lints: ^5.0.0
-
   flutter_test:
     sdk: flutter
-  freezed: ^3.0.6 # Code generator for immutable classes and union types
-
-  json_serializable: ^6.9.5 # Automatically generates JSON serialization code
-
+  freezed: ^3.0.6
+  json_serializable: ^6.9.5
   very_good_analysis: ^9.0.0
 
 # For information on the generic Dart part of this file, see the

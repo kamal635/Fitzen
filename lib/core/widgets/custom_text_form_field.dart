@@ -27,6 +27,7 @@ class CustomTextFormField extends StatelessWidget {
     this.textInputAction,
     this.onTapSuffixIcon,
     this.initialValue,
+    this.controller,
   });
 
   /// Determines whether the text should be obscured (e.g., for passwords).
@@ -78,9 +79,13 @@ class CustomTextFormField extends StatelessWidget {
   /// The initial value to be displayed in the text field.
   final String? initialValue;
 
+  /// Controller for managing the text input of this field.
+  final TextEditingController? controller;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       cursorColor: AppColors.secondary, //Sets the color of the blinking cursor
       obscureText: obscureText, //To hide the password
       keyboardType: keyboardType,

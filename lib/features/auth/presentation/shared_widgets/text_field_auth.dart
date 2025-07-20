@@ -28,6 +28,7 @@ class TextFieldAuth extends StatelessWidget {
     this.textInputAction,
     this.onTapSuffixIcon,
     this.initialValue,
+    this.controller,
   });
 
   ///To specify the field title above
@@ -85,6 +86,9 @@ class TextFieldAuth extends StatelessWidget {
   /// The initial value to be displayed in the text field.
   final String? initialValue;
 
+  /// Controller for managing the text input of this field.
+  final TextEditingController? controller;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -111,6 +115,7 @@ class TextFieldAuth extends StatelessWidget {
           textInputAction: textInputAction,
           onTapSuffixIcon: onTapSuffixIcon,
           initialValue: initialValue,
+          controller: controller,
         ),
         SizedBox(height: spaceBetweenTextField ?? 20.h),
       ],
