@@ -22,6 +22,7 @@ class CustomPhoneNumberField extends StatelessWidget {
     this.onChanged,
     this.initialValue,
     this.onCountryChanged,
+    this.controller,
   });
 
   /// The title or label displayed above the phone number input field.
@@ -42,6 +43,9 @@ class CustomPhoneNumberField extends StatelessWidget {
   /// Callback triggered when the selected country changes.
   final void Function(Country)? onCountryChanged;
 
+  /// Controller for managing the text input of this field.
+  final TextEditingController? controller;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -57,6 +61,7 @@ class CustomPhoneNumberField extends StatelessWidget {
             backgroundColor: AppColors.primary,
             searchFieldCursorColor: AppColors.secondary,
           ),
+          controller: controller,
           initialValue: initialValue,
           initialCountryCode: 'SY', // initial country
           onChanged: onChanged,
